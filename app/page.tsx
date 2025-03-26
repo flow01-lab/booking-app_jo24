@@ -6,9 +6,11 @@ import WallBanner from "./ui/wall-banner";
 export default function Home() {
     return (
         <div>
-            <main className="relative">
+            <header className="relative">
                 <UserBanner />
                 <NavMain />
+            </header>
+            <main className="relative">
                 <NavBanner />
                 <WallBanner />
             </main>
@@ -17,4 +19,4 @@ export default function Home() {
             </footer>
         </div>
     )
-}
+};

@@ -17,10 +17,39 @@ export type Event = {
     title: string;
     date: string;
     location: string;
-    adressNum: 
+    adressNum: number;
+    adressRoad: string;
+    city: string;
+    zipCode: number;
+    stocks: number;
+    sells: number;
+    price: number;
 };
 
 export type Ticket = {
-    userKey: string;
-    id.event
+    userKey: string; // Concat of 'User.idU' and 'Payment.idPay' -> to create unique Id
+    eventId: string;
+    eventDate: string;
+    eventLocation: string;
+    eventAdressNum: number;
+    eventAdressRoad: string;
+    eventCity: string;
+    eventZipCode: number;
+};
+
+export type Offer = {
+    id: string;
+    name: string;
+    description: string;
+    ticketsQty: number;
+    promo: number;
+}
+
+export type Cart = {
+    eventTitle: string;
+    offerRelat: string;
+    ticketsQty: number;
+    priceOoT: number;
+    tax: number;
+    sumCartWT: number;
 };
