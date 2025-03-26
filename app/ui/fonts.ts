@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 export const OlympicHeadline = localFont({
     src: [
       {
-        path: './fonts/OlympicHeadline-Condensed.woff2',
+        path: '../app/fonts/OlympicHeadline-Condensed.woff2',
         style: 'condensed',
       },
       {
