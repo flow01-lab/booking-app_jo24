@@ -1,6 +1,9 @@
 import Image from "next/image";
+// import 
 
 export default function SportCard() {
+    const listEvents = 
+
     return (
         <div>
             <Image 
@@ -18,7 +21,7 @@ export default function SportCard() {
                 <option value="duo">Duo [2 tickets]</option>
                 <option value="family">Family [4 tickets]</option>
             </select>
-            <button>Take my tickets</button>
+            <button className="cta-btn">Take my tickets</button>
         </div>
     );
 }

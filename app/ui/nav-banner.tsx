@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { OlympicSansMed, OlympicSansReg } from "./fonts";
 
 export default function NavBanner() {
     return (
-        <div className="flex flex-row border-gray-200 border-solid border-b-1"> {/* === Home Page Banner === */}
+        <div className={`${OlympicSansMed} flex flex-row border-gray-200 border-solid border-b-1 border-t-1`}> {/* === Home Page Banner === */}
             <nav className="flex-1 ml-20 border-gray-200 border-r-1">{/* == Home Page Menu == */}
-                <h3 className="mt-8 p-4">Olympics Games Paris 2024</h3>
-                <ul>
+                <h3 className={`${OlympicSansReg.className} mt-8 p-4`}>Olympics Games Paris 2024</h3>
+                <ul className="text-base/8">
                     <li>Overview</li>
                     <li>Highlights & Replays</li>
                     <li>Results</li>
@@ -28,15 +29,17 @@ export default function NavBanner() {
                 />
             </div>
             <div className="flex-1 border-solid border-l-1 border-gray-200 pr-15">{/* == Home Page Event Infos == */}
-                <h3 className="mt-8 p-4">Paris 2024</h3>
-                <div className="flex flex-col pl-8 ">
-                    <span>Date</span>
-                    <span>Country</span>
-                    <span>Athletes</span>
-                    <span>Teams</span>
-                    <span>Events</span>
-                    <button className="cta-btn">Buy e-Tickets</button>
-                    <button className="cta-btn">Show events</button>
+                <h3 className={`mt-8 p-4`}>Paris 2024</h3>
+                <div className={`${OlympicSansMed.className} flex flex-col pl-8 text-base/10`}>
+                    <span className="border-gray-200 border-solid border-b-1">Date</span>
+                    <span className="border-gray-200 border-solid border-b-1">Country</span>
+                    <span className="border-gray-200 border-solid border-b-1">Athletes</span>
+                    <span className="border-gray-200 border-solid border-b-1">Teams</span>
+                    <span className="border-gray-200 border-solid border-b-1">Events</span>
+                    <div className="mt-6">
+                        <button className="cta-btn">Buy e-Tickets</button>
+                        <button className="cta-btn">Show events</button>
+                    </div>
                 </div>
             </div>
         </div>

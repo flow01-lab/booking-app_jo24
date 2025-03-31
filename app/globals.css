@@ -29,12 +29,12 @@ button.cta-btn {
   text-align: center;
   background-color: #171717;
   color: #ededed;
-  padding: 10px 30px;
+  padding: 8px 25px;
   margin: 10px 5px;
   display: flex;
   align-items: center;
   justify-items: center;
-  width: 225px;
+  width: 13rem; /* 200px */
 }
 
 button.cta-btn::after {
@@ -44,4 +44,8 @@ button.cta-btn::after {
   margin-left: 1.5rem;
   align-items: center;
   justify-items: center;
+}
+
+h3{
+  font-size: 1.5rem;
 }

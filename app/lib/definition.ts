@@ -14,6 +14,7 @@ export type User = {
 
 export type Event = {
     id: string;
+    picto: string;
     title: string;
     date: string;
     location: string;
@@ -45,6 +46,13 @@ export type Offer = {
     promo: number;
 }
 
+export type Payment = {
+    idPay: string;
+    released: string;
+    date: string;
+    idCartLog: string;
+}
+
 export type Cart = {
     eventTitle: string;
     offerRelat: string;
@@ -52,4 +60,5 @@ export type Cart = {
     priceOoT: number;
     tax: number;
     sumCartWT: number;
+    CartLog: string;
 };

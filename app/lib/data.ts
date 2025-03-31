@@ -1,4 +1,4 @@
-// This file contains all functions to fetch data from database.
+// This file contains all functions to fetch and link data from database.
 // It define the variable 'sql' for access to data.  
 
 import postgres from 'postgres';
