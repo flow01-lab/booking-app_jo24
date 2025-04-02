@@ -1,4 +1,6 @@
 import { drizzle } from 'drizzle-orm/vercel-postgres';
-import { sql } from '@vercel/postgres';
+import { config } from 'dotenv';
 
-const db = drizzle({ client: sql });
+config({ path: '.env' }); // or .env.local
+
+export const db = drizzle();

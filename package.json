@@ -19,17 +19,17 @@
     "react-dom": "19.0.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.1.1",
+    "@types/node": "^20.17.30",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
-    "drizzle-kit": "^0.19.1",
-    "eslint": "^9",
+    "drizzle-kit": "^0.30.6",
+    "eslint": "^9.23.0",
     "eslint-config-next": "15.2.4",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.1.1",
     "tsx": "^4.19.3",
-    "typescript": "^5"
+    "typescript": "^5.8.2"
   },
   "overrides": {
     "@types/react": "19.0.12",
