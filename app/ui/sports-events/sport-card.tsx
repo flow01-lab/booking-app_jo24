@@ -1,26 +1,42 @@
 import Image from "next/image";
-// import 
+import { fetchSportsEvents } from "@/app/lib/data";
+import ListOffers from "../list-offers";
 
-export default function SportCard() {
-    const listEvents = 
+
+export default async function SportCard() {
+    const eventSport = await fetchSportsEvents(); // fetch data inside the component
+
+    if(!eventSport || eventSport.length === 0){
+        return <p> No data available ... or error fetching.</p>;
+    }
 
     return (
         <div>
-            <Image 
-            src=""
-            width={50}
-            height={50}
-            className=""
-            alt=""
-            />
-            <h4>{/* Sport Name */}</h4>
-            <p>{/* Description */}</p>
-            <select name="ticket-offers" id="ticket-offers-list">
-                <option value="">Choose your ticket offer</option>
-                <option value="solo">Solo [1 ticket]</option>
-                <option value="duo">Duo [2 tickets]</option>
-                <option value="family">Family [4 tickets]</option>
-            </select>
+            {eventSport.map(picto => (
+                <div key={picto.id} className="">
+                    <Image 
+                    src={picto.picto}
+                    width={50}
+                    height={50}
+                    className=""
+                    alt=""
+                    />
+                </div>
+            ))}
+            {eventSport.map((title)=> (
+                <h4 key={title.title} className="">{title.title}</h4>
+            ))}
+            {eventSport.map((description) => (
+                <p key={description.description} className="">{description.description}</p>
+            ))}
+            {eventSport.map((date) => (
+                <span key={date.date} className="">{date.date}</span>
+            ))}
+            {eventSport.map((location) => (
+                <span key={location.location} className="">{location.location}</span>
+            ))}
+
+            <ListOffers />
             <button className="cta-btn">Take my tickets</button>
         </div>
     );

@@ -4,7 +4,7 @@ import { OlympicSansReg } from "./fonts";
 
 export default function NavTop() {
     return (
-        <div className="flex flex-row sticky top-0 max-h-full mt-20 gap-25">
+        <div className="flex flex-row sticky top-0 max-h-full mt-20 gap-20">
             <div className="flex flex-row sticky top-0">
                 <div className="flex flex-row items-center sticky top-0">
                     
@@ -17,7 +17,7 @@ export default function NavTop() {
                     />
 
                 </div>
-                <div className={`${OlympicSansReg.className} ml-8`}>
+                <div className={`${OlympicSansReg.className} ml-6`}>
                     <nav className="flex flex-row justify-center items-center">
                         <ul className="flex items-center text-xl">
                             <li className="p-2 m-4">Olympics Games</li>

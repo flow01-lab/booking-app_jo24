@@ -16,6 +16,7 @@ export type Event = {
     id: string;
     picto: string;
     title: string;
+    description: string;
     date: string;
     location: string;
     adressNum: number;
@@ -47,18 +48,19 @@ export type Offer = {
 }
 
 export type Payment = {
-    idPay: string;
-    released: string;
+    id: string;
+    released: 'success' | 'failed';
     date: string;
     idCartLog: string;
 }
 
 export type Cart = {
-    eventTitle: string;
-    offerRelat: string;
-    ticketsQty: number;
-    priceOoT: number;
+    id: string;
+    eventTitle: string[];
+    offerRelat: string[];
+    ticketsQty: number[];
+    priceOoT: number[];
     tax: number;
     sumCartWT: number;
-    CartLog: string;
+    cartLog: string;
 };

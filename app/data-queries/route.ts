@@ -4,10 +4,12 @@ const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 export async function listEvents() {
     const data = await sql `
-        SELECT  
+        SELECT * FROM events WHERE 
     `
-    
-}
+    return data;
+};
+
+
 
 export async function GET() {
     try {
@@ -15,4 +17,4 @@ export async function GET() {
      } catch (error) {
          return Response.json({ error }, { status: 500 });
      }
-  }
+  };
