@@ -3,7 +3,7 @@ import NavTop from '../ui/nav-top';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-      <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
+      <div className="flex h-screen flex-col xs:flex-row xs:overflow-hidden">
         <header className="sticky top-0">
             <UserBanner />
             <NavTop />

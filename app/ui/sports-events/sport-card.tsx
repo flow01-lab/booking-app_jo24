@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { fetchSportsEvents } from "@/app/lib/data";
 import ListOffers from "../list-offers";
+import { OlympicHeadlineReg } from "../fonts";
 
 
 export default async function SportCard() {
@@ -11,27 +12,27 @@ export default async function SportCard() {
     }
 
     return (
-        <div>
+        <div className="sport-card">
             {eventSport.map(picto => (
-                <div key={picto.id} className="">
+                <div key={picto.id} className="sport-pict">
                     <Image 
-                    src={picto.picto}
-                    width={50}
+                    src="/img/all-disciplines-paris2024.png"
+                    width={96}
                     height={50}
-                    className=""
+                    className={picto.picto}
                     alt=""
                     />
                 </div>
             ))}
             {eventSport.map((title)=> (
-                <h4 key={title.title} className="">{title.title}</h4>
+                <h4 key={title.title} className={`${OlympicHeadlineReg.className}`}>{title.title}</h4>
             ))}
             {eventSport.map((description) => (
                 <p key={description.description} className="">{description.description}</p>
             ))}
-            {eventSport.map((date) => (
-                <span key={date.date} className="">{date.date}</span>
-            ))}
+        {/*    {eventSport.map((datetime) => (
+                <span key={datetime.datetime} className="">{datetime.datetime}</span>
+            ))} */}
             {eventSport.map((location) => (
                 <span key={location.location} className="">{location.location}</span>
             ))}

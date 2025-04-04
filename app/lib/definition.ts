@@ -17,7 +17,7 @@ export type Event = {
     picto: string;
     title: string;
     description: string;
-    date: string;
+    datetime: string;
     location: string;
     adressNum: number;
     adressRoad: string;

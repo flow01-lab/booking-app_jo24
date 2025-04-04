@@ -1,8 +1,6 @@
 import bcrypt from 'bcryptjs';
-import postgres from 'postgres';
+import sql from '../lib/db';
 import { users, events, offers } from '../lib/starting-data';
-
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 async function seedUsers() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;

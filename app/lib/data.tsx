@@ -1,21 +1,21 @@
 // This file contains all functions to fetch and link data from database.
 // It define the variable 'sql' for access to data.
 
+// import { supabase } from "./supabase" ; // Define path to use a link with database
+
+import sql from '../lib/db';
+
+
 import {
     Event,
     Ticket,
     Offer,
 } from './definition';
 
-import postgres from 'postgres';
-
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
-
-export default sql;
-
 export async function fetchSportsEvents() {
     try{
-        const data = await sql<Event[]>`SELECT * FROM events`;
+        const data = await sql<Event[]>`SELECT * FROM events`; // PostgresJS structure
+        //const {data: events} = await supabase.from("events").select(); // Supabase structure
         console.log ("fetching data from 'events' succeeded.");
         return data;
     }
@@ -23,7 +23,6 @@ export async function fetchSportsEvents() {
         console.error('Database Error:', error);
         throw new Error('Failed to fetch revenue data.');
     }
-    
 };
 
 export async function fetchOffers() {

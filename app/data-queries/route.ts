@@ -1,6 +1,4 @@
-import postgres from "postgres";
-
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+import sql from '../lib/db';
 
 export async function listEvents() {
     const data = await sql `
@@ -8,8 +6,6 @@ export async function listEvents() {
     `
     return data;
 };
-
-
 
 export async function GET() {
     try {

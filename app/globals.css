@@ -24,9 +24,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+h2{
+  font-size: 6rem;
+  line-height: 8rem;
+  padding: 10px;
+}
 
 h3{
   font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 2rem;
+  padding: 3px;
 }
 
 button.cta-btn {
@@ -50,7 +60,7 @@ button.cta-btn::after {
   justify-items: center;
 }
 
-/*--- circle red for notif of articles count ---*/
+/*--- Circle red for notif of articles count ---*/
 .menu-cart-notif {
   content: '1';
   font-size: large;
@@ -64,3 +74,31 @@ button.cta-btn::after {
   right: 5px;
 }
 
+/*--- Container for Sports Cards ---*/
+.sport-card {
+  border: #0a0a0a solid 1px;
+  border-radius: 5px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px 2rem;
+  margin: 20px 2rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+/*-- Container for Pictogram image in Sports Cards --*/
+.sport-pict {
+  width: 96px;
+  height: 96px;
+  mask: initial;
+  mask-size: contain;
+  overflow: hidden;
+  /*mask-image: linear-gradient(rgb(0 0 0 / 100%), transparent);*/
+}
+/*- Rules for Picto postition in Image constainer of Sports Cards -*/
+.xBasketBall {
+  object-position: 0px 0px;
+}
