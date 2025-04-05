@@ -1,12 +1,13 @@
 import bcrypt from 'bcryptjs';
 import sql from '../lib/db';
-import { users, events, offers } from '../lib/starting-data';
+import { users, events, offers } from '../lib/init-data';
 
 async function seedUsers() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   await sql`
     CREATE TABLE IF NOT EXISTS users (
-      idU UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+      created_at TIMESTAMPTZ,
       idLog TEXT,
       name VARCHAR(255) NOT NULL,
       surname VARCHAR(255) NOT NULL,
@@ -29,46 +30,49 @@ async function seedUsers() {
         );
     
   return insertedUsers;
-}
+};
 
 async function seedEvents() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   await sql`
     CREATE TABLE IF NOT EXISTS events (
-      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+      id SERIAL PRIMARY KEY,
+      created_at TIMESTAMPTZ,
       picto TEXT,
       title VARCHAR(255) NOT NULL,
       description TEXT,
-      date DATE NOT NULL,
+      datetime TIMESTAMP,
       location TEXT NOT NULL,
       adressNum INT NOT NULL,
       adressRoad TEXT NOT NULL,
       city VARCHAR(255) NOT NULL,
-      zipCode INT NOT NULL,
-      stocks INT NOT NULL,
-      sells INT,
-      price INT NOT NULL
+      zipCode INTEGER NOT NULL,
+      stocks INTEGER NOT NULL,
+      sells INTEGER,
+      price INTEGER NOT NULL
     );
   `;
 
   const insertedEvents = await Promise.all(
-    events.map(async (event) => {
+    events.map( async (event) => { 
       return sql`
-        INSERT INTO events (picto, title, description, date, location, adressNum, adressRoad, city, zipCode, stocks, price)
-        VALUES (${event.picto}, ${event.title}, ${event.description}, ${event.date}, ${event.location}, ${event.adressNum}, ${event.adressRoad}, ${event.city}, ${event.zipCode}, ${event.stocks}, ${event.price})
+        INSERT INTO events (picto, title, description, datetime, location, adressNum, adressRoad, city, zipCode, stocks, price)
+        VALUES (${event.picto}, ${event.title}, ${event.description}, ${event.datetime}, ${event.location}, ${event.adressNum}, ${event.adressRoad}, ${event.city}, ${event.zipCode}, ${event.stocks}, ${event.price})
         ON CONFLICT (id) DO NOTHING;
       `;
     }),
   );
 
   return insertedEvents;
-}
+};
 
 async function seedTickets() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   await sql`
     CREATE TABLE IF NOT EXISTS tickets (
-      eventId UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+      created_at TIMESTAMPTZ,
+      eventId SERIAL,
       userKey VARCHAR(255) NOT NULL,
       eventDate DATE NOT NULL,
       eventLocation VARCHAR(255) NOT NULL,
@@ -78,46 +82,34 @@ async function seedTickets() {
       eventZipCode INT NOT NULL
     );
   `;
-/*
-  const insertedCustomers = await Promise.all(
-    customers.map(
-      (customer) => sql`
-        INSERT INTO customers (id, name, email, image_url)
-        VALUES (${customer.id}, ${customer.name}, ${customer.email}, ${customer.image_url})
-        ON CONFLICT (id) DO NOTHING;
-      `,
-    ),
-  );
-
-  return insertedCustomers;*/
-
   return sql;
-}
+};
 
 async function seedOffers() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   await sql`
     CREATE TABLE IF NOT EXISTS offers (
-      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+      id SERIAL PRIMARY KEY,
+      created_at TIMESTAMP,
       name VARCHAR(255) NOT NULL,
       description TEXT NOT NULL,
-      ticketsQty INT NOT NULL,
-      promo INT
+      ticketsQty INTEGER NOT NULL,
+      promo INTEGER
     );
   `;
 
   const insertedOffers = await Promise.all(
     offers.map(
       (offer) => sql`
-        INSERT INTO revenue (name, description, ticketsQty)
-        VALUES (${offer.name}, ${offer.description}, ${offer.ticketsQty})
+        INSERT INTO revenue (name, description, ticketsQty, promo)
+        VALUES (${offer.title}, ${offer.description}, ${offer.ticketsQty}, ${offer.promo})
         ON CONFLICT (id) DO NOTHING;
       `,
     ),
   );
 
   return insertedOffers;
-}
+};
 
 async function seedPayments() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;

@@ -7,8 +7,8 @@ export default async function ListOffers(){
         <div className="border-1 solid border-gray-200 p-3">
             <select name="ticket-offers" id="ticket-offers-list">
                 <option value="">Choose your ticket offer</option>
-                {offers.map((name) => (
-                    <option value={name.name} key={name.name}>{name.name}</option>
+                {offers.map((title) => (
+                    <option value={title.title} key={title.title}>{title.title}</option>
                 ))}
             </select>
         </div>

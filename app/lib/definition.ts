@@ -2,7 +2,8 @@
 // It describes the shape of the data, and what data type each property should accept.
 
 export type User = {
-    idU: string;
+    id: string;
+    created_at: string;
     idLog: string;
     name: string;
     surname: string;
@@ -13,7 +14,8 @@ export type User = {
   };
 
 export type Event = {
-    id: string;
+    id: number;
+    created_at: string;
     picto: string;
     title: string;
     description: string;
@@ -29,7 +31,9 @@ export type Event = {
 };
 
 export type Ticket = {
-    userKey: string; // Concat of 'User.idU' and 'Payment.idPay' -> to create unique Id
+    id: number;
+    created_at: string;
+    userKey: string; // Concat of 'User.id' and 'Payment.id' -> to create unique Id
     eventId: string;
     eventDate: string;
     eventLocation: string;
@@ -41,7 +45,8 @@ export type Ticket = {
 
 export type Offer = {
     id: string;
-    name: string;
+    created_at: string;
+    title: string;
     description: string;
     ticketsQty: number;
     promo: number;
@@ -49,18 +54,21 @@ export type Offer = {
 
 export type Payment = {
     id: string;
-    released: 'success' | 'failed';
-    date: string;
+    created_at: string;
+    isSuccess: boolean;
+    state: 'not start' | 'in progress';
     idCartLog: string;
 }
 
 export type Cart = {
     id: string;
+    created_at: string;
     eventTitle: string[];
     offerRelat: string[];
     ticketsQty: number[];
     priceOoT: number[];
     tax: number;
     sumCartWT: number;
+    userRef: string;
     cartLog: string;
 };
