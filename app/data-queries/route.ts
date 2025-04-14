@@ -2,7 +2,7 @@ import sql from '../lib/db';
 
 export async function listEvents() {
     const data = await sql `
-        SELECT * FROM events WHERE 
+        SELECT * FROM events; 
     `
     return data;
 };

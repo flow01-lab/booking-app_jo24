@@ -4,9 +4,10 @@
 export type User = {
     id: string;
     created_at: string;
-    idLog: string;
+    idLogin: string;
     name: string;
     surname: string;
+    phone: string;
     email: string;
     password: string;
     nationality: string;

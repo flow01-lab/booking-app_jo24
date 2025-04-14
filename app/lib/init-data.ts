@@ -1,12 +1,12 @@
 // This file is the starter of data for the app.
 // Variable are used in seed/route.ts to insert first data in database
 
-
 const users = [
     {
         name: 'Admin_Paris2024',
         surname: 'Olympics',
         email: 'orga-paris2024@olympics.fr',
+        phone:'',
         password: 'JOParis2024_Admin',
         nationality: 'France',
         admin: true
@@ -16,7 +16,6 @@ const users = [
 // * => Notes : 
 // * Prices of one e-ticket are between 24 and 950 euros (€) ATI (All Taxes Included)
 // * Dates included events : 26/07/2024 and 11/08/2024
-
 
 const events = [
     {
@@ -653,21 +652,18 @@ const events = [
 
 const offers = [
     {
-        id: '',
         title: 'Solo',
         description: 'Vous souhaitez réserver des e-tickets pour UNE seule personne à l\'occasion de vos événements sportfif favoris ? Voici l\'offre Solo pour profitez des Jeux Olympiques Paris 2024 en toute tranquilité.',
         ticketsQty: 1,
         promo: 0,
     },
     {
-        id: '',
         title: 'Duo',
         description: 'Avec un.e ami.e, un.e collègue, en couple ou avec un.e membre de votre famille, choississez l\'offre Duo pour regrouper vos e-tickets et vos paiement en une seule fois.',
         ticketsQty: 2,
         promo: 0,
     },
     {
-        id: '',
         title: 'Family',
         description: 'Le sport ça se vie en famille ! Choisissez l\'offre Family pour regrouper vos places et vos achats en un seul e-ticket par événement sportif. Assister aux Jeux Olympiques Paris 2024 l\'esprit tranquille.',
         ticketsQty: 4,

@@ -43,11 +43,11 @@ button.cta-btn {
   text-align: center;
   background-color: #171717;
   color: #ededed;
-  padding: 8px 25px;
+  padding: 8px 5px;
   margin: 10px 5px;
   display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
   width: 13rem; /* 200px */
 }
 
@@ -58,6 +58,8 @@ button.cta-btn::after {
   margin-left: 1.5rem;
   align-items: center;
   justify-items: center;
+  position: relative;
+  right: -10px;
 }
 
 /*--- Circle red for notif of articles count ---*/
@@ -86,7 +88,7 @@ button.cta-btn::after {
   margin: 20px 2rem;
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  width: 300px;
 }
 
 /*-- Container for Pictogram image in Sports Cards --*/
@@ -100,5 +102,137 @@ button.cta-btn::after {
 }
 /*- Rules for Picto postition in Image constainer of Sports Cards -*/
 .xBasketBall {
+  object-position: 0px calc(42 * -100px);
+}
+.archery {
   object-position: 0px 0px;
+}
+.artistic-swimming {
+  object-position: 0px calc(31 * -100px);
+}
+.artistic-gymnastics {
+  object-position: 0px calc(17 * -100px);
+}
+.atheltics {
+  object-position: 0px -100px;
+}
+.badminton {
+  object-position: 0px calc(2 * -100px);
+}
+.basketball {
+  object-position: 0px calc(3 * -100px);
+}
+.beach-volleyball {
+  object-position: 0px calc(4 * -100px);
+}
+.boxing {
+  object-position: 0px calc(5 * -100px);
+}
+.breaking {
+  object-position: 0px calc(47 * -100px);
+}
+.canoe-slalom {
+  object-position: 0px calc(6 * -100px);
+}
+.canoe-sprint {
+  object-position: 0px calc(7 * -100px);
+}
+.cycling-bmx-free {
+  object-position: 0px calc(43 * -100px);
+}
+.cycling-bmx-race {
+  object-position: 0px calc(8 * -100px);
+}
+.cycling-mount-bike {
+  object-position: 0px calc(9 * -100px);
+}
+.cycling-road {
+  object-position: 0px calc(10 * -100px);
+}
+.cycling-track {
+  object-position: 0px calc(11 * -100px);
+}
+.diving {
+  object-position: 0px calc(12 * -100px);
+}
+.equestrian {
+  object-position: 0px calc(13 * -100px);
+}
+.fencing {
+  object-position: 0px calc(14 * -100px);
+}
+.football {
+  object-position: 0px calc(15 * -100px);
+}
+.golf {
+  object-position: 0px calc(16 * -100px);
+}
+.handball {
+  object-position: 0px calc(20 * -100px);
+}
+.hockey {
+  object-position: 0px calc(21 * -100px);
+}
+.judo {
+  object-position: 0px calc(22 * -100px);
+}
+.marathon-swimming {
+  object-position: 0px calc(28 * -100px);
+}
+.modern-pentathlon {
+  object-position: 0px calc(23 * -100px);
+}
+.rhytmic-gymnastics {
+  object-position: 0px calc(18 * -100px);
+}
+.rowing {
+  object-position: 0px calc(24 * -100px);
+}
+.rugby-sevens {
+  object-position: 0px calc(25 * -100px);
+}
+.sailing {
+  object-position: 0px calc(26 * -100px);
+}
+.shooting {
+  object-position: 0px calc(27 * -100px);
+}
+.skateboarding {
+  object-position: 0px calc(44 * -100px);
+}
+.sport-climbing {
+  object-position: 0px calc(45 * -100px);
+}
+.surfing {
+  object-position: 0px calc(46 * -100px);
+}
+.swimming {
+  object-position: 0px calc(28 * -100px);
+}
+.table-tennis {
+  object-position: 0px calc(31 * -100px);
+}
+.taekwondo {
+  object-position: 0px calc(32 * -100px);
+}
+.tennis {
+  object-position: 0px calc(33 * -100px);
+}
+.trampoline-gymnastics {
+  object-position: 0px calc(17 * -100px);
+}
+.triathlon {
+  object-position: 0px calc(34 * -100px);
+}
+.volleyball {
+  object-position: 0px calc(35 * -100px);
+}
+.water-polo {
+  object-position: 0px calc(36 * -100px);
+}
+.weightlifting {
+  object-position: 0px calc(37 * -100px);
+}
+.wrestling {
+  object-position: 0px calc(38 * -100px);
 }
