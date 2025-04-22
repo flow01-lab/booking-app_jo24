@@ -1,4 +1,4 @@
-import { fetchOffers } from "../lib/data";
+import { fetchOffers } from "../../lib/data";
 
 export default async function ListOffers(){
     const offers = await fetchOffers();

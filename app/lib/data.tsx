@@ -1,8 +1,8 @@
 // This file contains all functions to fetch and link data from database.
 // It define the variable 'sql' for access to data.
 
-import { createClient } from '@/app/utils/supabase/server'; // Define path to use a link with database
-import { Database } from '@/app/lib/database.types';
+import { createClient } from '../utils/supabase/server'; // Define path to use a link with database
+import { Database, Tables } from './database.types';
 
 import sql from '../lib/db';
 
@@ -12,6 +12,12 @@ import {
     Ticket,
     //Offer,
 } from './definition';
+
+const supabase = createClient<Database>(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_ANON_KEY
+);
+
 
 export async function fetchSportsEvents() {
     try{
@@ -32,7 +38,7 @@ export async function fetchSportsEvents() {
 export async function fetchOffers() {
     try {
         //const data = await sql<Offer[]>`SELECT * FROM offers`;
-        const supabase = await createClient<Database>();
+        let offersType: Tables<'offers'>;
         const {data: offers} = await supabase.from('offers').select();
         const allOffers = offers?.map((offer) => ({
             ...offer

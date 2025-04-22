@@ -4,9 +4,9 @@
 export type User = {
     id: string;
     created_at: string;
-    idLogin: string;
-    name: string;
+    username: string;
     surname: string;
+    firstname: string;
     phone: string;
     email: string;
     password: string;

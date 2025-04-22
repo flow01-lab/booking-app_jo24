@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SearchBar from "./search";
-import { OlympicSansReg } from "./fonts";
+import { OlympicSansReg } from "../fonts";
 
 export default function NavTop() {
     return (

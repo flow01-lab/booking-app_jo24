@@ -1,5 +1,5 @@
 import UserBanner from '../ui/components/user-banner';
-import NavTop from '../ui/nav-top';
+import NavTop from '../ui/components/nav-top';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (

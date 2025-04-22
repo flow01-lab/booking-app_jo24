@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { fetchSportsEvents } from "@/app/lib/data";
-import ListOffers from "../list-offers";
+//import ListOffers from "../list-offers";
 import { OlympicHeadlineReg } from "../fonts";
 
 

@@ -35,6 +35,8 @@ async function seedUsers() {
 
   return sql;
 
+  /* === Preparation of data from 'init-data.ts' with encryption password and ID-Log with concatenation of name and surname === */
+  /* === Don't work with Supabase RSL and security policies === */ 
   /*const insertedUsers = await Promise.all(
           users.map( async (user) => {
             const hashedPassword = await bcrypt.hash(user.password, 10);

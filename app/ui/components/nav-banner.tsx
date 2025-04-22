@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { OlympicSansMed, OlympicSansReg } from "./fonts";
+import { OlympicSansMed, OlympicSansReg } from "./../fonts";
 
 export default function NavBanner() {
     return (
         <div className={`${OlympicSansMed.className} flex flex-row border-gray-200 border-solid border-b-1 border-t-1`}> {/* === Home Page Banner === */}
             <nav className="flex-1 ml-20 border-gray-200 border-r-1">{/* == Home Page Menu == */}
                 <h3 className={`${OlympicSansReg.className} mt-8 p-4`}>Olympics Games Paris 2024</h3>
-                <ul className="text-base/8">
+                <ul className="text-base/8 menu-banner">
                     <li>Overview</li>
                     <li>Highlights & Replays</li>
                     <li>Results</li>
