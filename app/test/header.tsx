@@ -1,23 +1,3 @@
-/*import isUserConnected from "./isConnected";
-
-import { useEffect } from "react";
-
-export default function Greetings(){
-    //const signOutText = 'Sign Out';
-    const signInText = 'Sign in';
-    const greetings = 'Hello ';
-    useEffect(() => {
-        const element = document.getElementById('user-sign-btn');
-        if (!isUserConnected()){
-            element.textContent = signInText;
-        } else {
-            element.textContent = greetings;
-        }
-        return <span id="user-sign-btn">Sign In</span>;
-    }, [])
-  
-}*/
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -30,7 +10,7 @@ export default function Header() {
     const [userIsLogged, setUserIsLogged] = useState<boolean>(false);
 
     useEffect(() => {
-        const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((event/*, session*/) => {
             if (event === 'SIGNED_IN') {
                 setUserIsLogged(true);
             } else if (event === 'SIGNED_OUT') {
@@ -59,13 +39,11 @@ export default function Header() {
     return (
         <div>
             {userIsLogged ? (
-                <form action="/auth/logout" method="post">
-                    <button type="submit">
-                        Sign Out
-                    </button>
+                <form action="/auth/signout" method="post">
+                    <button type="submit">Sign Out</button>
                 </form>
             ) : (
-                <button onClick={() => router.push('/auth/login')}>Log in</button>
+                <button onClick={() => router.push('/auth')}>Log in</button>
             )}
         </div>
     );

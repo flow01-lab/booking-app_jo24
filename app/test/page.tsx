@@ -1,4 +1,4 @@
-import Header from "../ui/components/header"
+import Header from "./header"
 
 export default function Page(){
 

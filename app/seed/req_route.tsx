@@ -1,25 +1,16 @@
-import bcrypt from 'bcryptjs';
+// import bcrypt from 'bcryptjs';
 // import sql from '../lib/db';
-import { users, events, offers } from '../lib/init-data';
-
-import { createClient } from '../utils/supabase/server';
-import { cookies } from 'next/headers';
-
-export default async function Page() {
-  const cookieStore = await cookies()
-  const supabase = createClient(cookieStore)
-
-}
-
+// import { users, events, offers } from '../lib/init-data';
+/*
 async function seedUsers() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`;
   await sql`
-    CREATE DOMAIN phone_num AS TEXT
-      CHECK( VALUE ~ '^\+?[1-9]\d{1,14}$' );
+    CREATE DOMAIN IF NOT EXISTS phone_num AS TEXT
+      CHECK VALUE ~ '^\+?[1-9]\d{1,14}$' ;
       `;
   await sql `
-    CREATE DOMAIN email_adress AS TEXT
-      CHECK( VALUE ~ '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' );
+    CREATE DOMAIN IF NOT EXISTS email_adress AS TEXT
+      CHECK VALUE ~ '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' ;
     `;
   await sql`
     CREATE TABLE IF NOT EXISTS users (
@@ -28,36 +19,50 @@ async function seedUsers() {
       idLogin TEXT,
       name VARCHAR(255) NOT NULL,
       surname VARCHAR(255) NOT NULL,
-      phone phone_num NOT NULL,
       email email_adress NOT NULL UNIQUE,
+      phone phone_num NOT NULL,
       password TEXT NOT NULL,
       nationality VARCHAR(255) NOT NULL,
       admin BOOLEAN
     );
   `;
-  const insertedUsers = await Promise.all(
+
+  await sql` 
+    INSERT INTO users (idLogin, name, surname, email, phone, password, nationality, admin)
+              VALUES ('Admin_Olympics', 'Admin_', 'Olympics', 'Orga-paris2024@olympics.com', '0201304567', 'root', 'French', true)
+              ON CONFLICT (id) DO NOTHING;
+  `;
+
+  return sql; */
+
+  /* === Preparation of data from 'init-data.ts' with encryption password and ID-Log with concatenation of name and surname === */
+  /* === Don't work with Supabase RSL and security policies === */ 
+  /*const insertedUsers = await Promise.all(
           users.map( async (user) => {
             const hashedPassword = await bcrypt.hash(user.password, 10);
             const idLogin = `${user.name}+'_'+${user.surname}`;
-            return sql`
-              INSERT INTO users (idLogin, name, surname, email, password, nationality, admin)
-              VALUES (${idLogin}, ${user.name}, ${user.surname}, ${user.email}, ${hashedPassword}, ${user.nationality}, ${user.admin})
+            await sql`
+              INSERT INTO users (idLogin, name, surname, email, phone, password, nationality, admin)
+              VALUES (${idLogin}, ${user.name}, ${user.surname}, ${user.email}, ${user.phone}, ${hashedPassword}, ${user.nationality}, ${user.admin})
               ON CONFLICT (id) DO NOTHING;
             `;
+          return sql;
           }),
         );
     
   return insertedUsers;
-};
+};*/
 
+/*
 async function seedEvents() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-  await sql`CREATE DOMAIN IF NOT EXISTS postal_code AS INT
+  await sql`CREATE DOMAIN postal_code AS TEXT DEFAULT '75000'
     CHECK ( 
     VALUE ~ '^\d{5}$'
     OR VALUE ~ '^\d{5}-\d{4}$'
     );
     `;
+  // create domain postal_code as text default '75000' check (value ~ '^\d{5}$' or value ~ '^\d{5}-\d{4}$');
 
   await sql`
     CREATE TABLE IF NOT EXISTS events (
@@ -77,20 +82,23 @@ async function seedEvents() {
       price INT NOT NULL
     );
   `;
-
+/*
   const insertedEvents = await Promise.all(
     events.map( async (event) => { 
-      return sql`
+      await sql`
         INSERT INTO events (picto, title, description, datetime, location, adressNum, adressRoad, city, zipCode, stocks, price)
         VALUES (${event.picto}, ${event.title}, ${event.description}, ${event.datetime}, ${event.location}, ${event.adressNum}, ${event.adressRoad}, ${event.city}, ${event.zipCode}, ${event.stocks}, ${event.price})
         ON CONFLICT (id) DO NOTHING;
       `;
+      return sql;
     }),
   );
 
   return insertedEvents;
-};
+  return sql;
+};*/
 
+/*
 async function seedTickets() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   await sql`
@@ -116,17 +124,17 @@ async function seedOffers() {
     CREATE TABLE IF NOT EXISTS offers (
       id SERIAL PRIMARY KEY,
       created_at TIMESTAMPTZ DEFAULT NOW(),
-      name VARCHAR(255) NOT NULL,
+      title VARCHAR(255) NOT NULL,
       description TEXT NOT NULL,
       ticketsQty INT NOT NULL,
       promo INT
     );
   `;
-
+/*
   const insertedOffers = await Promise.all(
     offers.map(
       (offer) => sql`
-        INSERT INTO revenue (name, description, ticketsQty, promo)
+        INSERT INTO offers (title, description, ticketsQty, promo)
         VALUES (${offer.title}, ${offer.description}, ${offer.ticketsQty}, ${offer.promo})
         ON CONFLICT (id) DO NOTHING;
       `,
@@ -134,8 +142,10 @@ async function seedOffers() {
   );
 
   return insertedOffers;
-};
+  return sql;
+};*/
 
+/*
 async function seedPayments() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   await sql`
@@ -186,4 +196,4 @@ export async function GET() {
   } catch (error) {
     return Response.json({ error }, { status: 500 });
   }
-}
+}*/

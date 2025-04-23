@@ -1,4 +1,3 @@
-//import React, {useEffect} from "react";
 import { UserButton } from "./user-button";
 import CartButton from "./cart-button";
 

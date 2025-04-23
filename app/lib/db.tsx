@@ -1,3 +1,5 @@
+// Connexion to Database with 'Postgresjs' instructions  
+
 import postgres from 'postgres';
 
 const connectionStringDB = process.env.DATABASE_URL;

@@ -20,31 +20,31 @@ export const FormChecker= ()=> {
     
     
         form?.addEventListener('submit', (event) => {
-            let errors = [];
+            const errors = [];
             let inputId = form;
     
             function isValidNames(name){
-                let regNames = /^([ \u00c0-\u01ffa-zA-Z'\-])+$/;
+                const regNames = /^([ \u00c0-\u01ffa-zA-Z'\-])+$/;
                 return regNames.test(name);
             }
     
             function isValidPhone(phone){
-                let regPhone = /^\+?[1-9]\d{1,14}$/;
+                const regPhone = /^\+?[1-9]\d{1,14}$/;
                 return regPhone.test(phone);
             }
     
             function isValidEmail(email){
-                let regEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                const regEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
                 return regEmail.test(email);
             }
     
             function isValidPassword(password){
-                let regPass = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
+                const regPass = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
                 return regPass.test(password);
             }
     
             function isValidNationality(nationality){
-                let regNation = /^[a-zA-Z]+$/;
+                const regNation = /^[a-zA-Z]+$/;
                 return regNation.test(nationality);
             }
             

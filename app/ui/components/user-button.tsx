@@ -14,7 +14,7 @@ export const UserButton = () => {
     const [userIsLogged, setUserIsLogged] = useState<boolean>(false);
     
     useEffect(() => {
-        const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((event/*, session */) => {
             if (event === 'SIGNED_IN') {
                 setUserIsLogged(true);
             } else if (event === 'SIGNED_OUT') {

@@ -1,4 +1,4 @@
-// This file contains type definitions of data from database.
+// This file contains type definitions of data from database with 'Postgresjs' types definition.
 // It describes the shape of the data, and what data type each property should accept.
 
 export type User = {
