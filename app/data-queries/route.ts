@@ -1,4 +1,4 @@
-import sql from '../lib/db';
+/*import sql from '../lib/db';
 
 export async function listEvents() {
     const data = await sql `
@@ -13,4 +13,4 @@ export async function GET() {
      } catch (error) {
          return Response.json({ error }, { status: 500 });
      }
-  };
+  };*/
