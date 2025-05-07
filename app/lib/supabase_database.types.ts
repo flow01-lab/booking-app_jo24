@@ -6,7 +6,7 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-export interface Database {
+export type Database = {
   graphql_public: {
     Tables: {
       [_ in never]: never
@@ -126,7 +126,7 @@ export interface Database {
       }
       offers: {
         Row: {
-          created_at: string | null
+          created_at: string
           description: string
           id: number
           promo: number | null
@@ -134,7 +134,7 @@ export interface Database {
           title: string
         }
         Insert: {
-          created_at?: string | null
+          created_at?: string
           description: string
           id?: number
           promo?: number | null
@@ -142,7 +142,7 @@ export interface Database {
           title: string
         }
         Update: {
-          created_at?: string | null
+          created_at?: string
           description?: string
           id?: number
           promo?: number | null

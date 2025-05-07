@@ -38,11 +38,6 @@ export const UserButton = () => {
             setUser(userData);
             setLoading(false);
 
-            const element = document.getElementById('user-button');
-            if (!userData || userData === null) {
-                element.textContent = 'Sign In';
-            }
-
         };
         getUsername();
         loadSession();

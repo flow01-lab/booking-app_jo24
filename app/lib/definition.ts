@@ -45,7 +45,7 @@ export type Ticket = {
 };
 
 export type Offer = {
-    id: string;
+    id: number;
     created_at: string;
     title: string;
     description: string;

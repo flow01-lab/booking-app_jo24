@@ -1,7 +1,7 @@
 import UserBanner from "./ui/components/user-banner";
 import NavTop from "./ui/components/nav-top";
-import NavBanner from "./ui/components/nav-banner";
-import WallBanner from "./ui/components/wall-banner";
+import HomeMain from "./ui/components/homeMain";
+
 
 export default function Home() {
     return (
@@ -11,8 +11,7 @@ export default function Home() {
                 <NavTop />
             </header>
             <main className="">
-                <NavBanner />
-                <WallBanner />
+                <HomeMain />
             </main>
             <footer>
 

@@ -40,7 +40,7 @@ export default function NavBanner() {
                     <span className="border-gray-200 border-solid border-b-1">Events</span>
                     <div className="mt-6">
                         <button className="cta-btn">Buy e-Tickets</button>
-                        <button className="cta-btn">Show events</button>
+                        <Link href="/sports-events"><button className="cta-btn">Show Events</button></Link>
                     </div>
                 </div>
             </div>

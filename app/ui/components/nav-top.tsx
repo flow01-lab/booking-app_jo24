@@ -5,7 +5,7 @@ import { OlympicSansReg } from "../fonts";
 
 export default function NavTop() {
     return (
-        <div className="flex flex-row sticky top-0 max-h-full mt-20 gap-20">
+        <div className="flex flex-row sticky z-10 top-0 max-h-full mt-20 gap-20">
             <div className="flex flex-row sticky top-0">
                 <div className="flex flex-row items-center sticky top-0">
                     <Link href="/">
