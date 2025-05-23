@@ -8,11 +8,12 @@ import { useEffect, useState } from "react";
 import { supabase } from '@/app/lib/db-supabase';
 import { EventsTypes } from "@/app/lib/types/database-generated.types";
 
-interface SCardProps {
+/*interface SCardProps {
     eventItem: EventsTypes;
 }
+{eventItem}: SCardProps */
 
-export default function SportCards({eventItem}: SCardProps) {
+export default function SportCards() {
     
     // Method for 'Events' Table Call and fetch data.
     const [isLoading, setIsLoading] = useState(true);

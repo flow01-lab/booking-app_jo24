@@ -35,10 +35,12 @@ export default async function EventsData() {
 
 // return in JSON => return <pre>{JSON.stringify(events, null, 2)}</pre>;
 
+// Try to fetch data to an object
+/*
 export async function getEventPost(paramslug){
     const eventPost = await EventsData();
     const postSlug = eventPost.map((eventpost) => ({
             ...eventpost
         }))
   return postSlug;
-}
+}*/
