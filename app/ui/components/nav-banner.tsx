@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { OlympicSansMed, OlympicSansReg } from "./../fonts";
+import { OlympicSansMed, OlympicSansReg } from "@/app/ui/fonts";
 
 export default function NavBanner() {
     return (
@@ -17,11 +17,11 @@ export default function NavBanner() {
                     <li>Medal Design</li>
                     <li>Mascot</li>
                     <li>Torch</li>
-                    <li><Link href="/sports-events">Sport Events</Link></li>
+                    <li><Link href="#sports-events">Sport Events</Link></li>
                     
                 </ul>
             </nav>
-            <div className="flex-1 p-8 items-center justify-center">{/* == Home Page Logo == */}
+            <div className="flex-1 p-8 content-center justify-items-center">{/* == Home Page Logo == */}
                 <Image
                 src="/img/Paris2024-Official-Logo.png"
                 width={300}
@@ -39,8 +39,8 @@ export default function NavBanner() {
                     <span className="border-gray-200 border-solid border-b-1">Teams</span>
                     <span className="border-gray-200 border-solid border-b-1">Events</span>
                     <div className="mt-6">
-                        <button className="cta-btn">Buy e-Tickets</button>
-                        <Link href="/sports-events"><button className="cta-btn">Show Events</button></Link>
+                        <Link href="/offers"><button className="cta-btn">Show e-tickets offers</button></Link>
+                        <Link href="/sports-events"><button className="cta-btn">Show sports events</button></Link>
                     </div>
                 </div>
             </div>

@@ -30,31 +30,38 @@ export const OlympicHeadlineCsd = localFont({
     style: 'normal',
   });
   
-  /*export const Paris2024 = localFont({
-    src: [
-      {
-        path: './fonts/Paris2024_Normal-Italic.woff2',
-        style: 'italic',
-      },
-      {
-        path: './fonts/Paris2024_Normal.woff2',
-        style: 'normal',
-      },
-      {
-        path: './fonts/Paris2024_Weight-Italic.woff2',
-        style: 'italic',
-      },
-      {
-        path: './fonts/Paris2024_Weight.woff2',
-        style: 'normal',
-      },
-      {
-        path: './fonts/Paris2024_X-Weight-Italic.woff2',
-        style: 'italic',
-      },
-      {
-        path: './fonts/Paris2024_X-Weight.woff2',
-        style: 'normal',
-      },
-    ]
-  });*/
+  export const Paris2024_Normal = localFont({
+    src: '../fonts/Paris2024_Normal.woff2',
+    weight: '400',
+    style: 'normal',
+  });
+
+  export const Paris2024_NormalItalic = localFont({
+    src: '../fonts/Paris2024_Normal-Italic.woff2',
+    weight: '400',
+    style: 'italic',
+  });
+
+  export const Paris2024_WeightItalic = localFont({
+    src: '../fonts/Paris2024_Weight-Italic.woff2',
+    weight: '600',
+    style: 'italic',
+  });
+
+  export const Paris2024_Weight = localFont({
+    src: '../fonts/Paris2024_Weight.woff2',
+    weight: '600',
+    style: 'normal',
+  });
+
+  export const Paris2024_X_Weight = localFont({
+    src: '../fonts/Paris2024_X-Weight.woff2',
+    weight: '700',
+    style: 'normal',
+  });
+
+  export const Paris2024_X_WeightItalic = localFont({
+    src: '../fonts/Paris2024_X-Weight-Italic.woff2',
+    weight: '700',
+    style: 'italic',
+  });

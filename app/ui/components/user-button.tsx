@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
-import { createClient } from '@/app/utils/supabase/client';
+import { createClient } from '@/app/lib/utils/supabase/client';
 import Image from "next/image";
-import isUserConnected from "../isConnected";
+import isUserConnected from "@/app/lib/isConnected";
 
 export const UserButton = () => {
     const [user, setUser] = useState([]);
