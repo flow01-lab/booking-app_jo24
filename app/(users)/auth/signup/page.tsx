@@ -30,9 +30,11 @@ export default function Page(){
             console.log(data); // To remove after test !!! 
         }
         catch (error) {
-            // Capture the error message to displau to the user
-            setError(error.message)
-            console.log(error)
+            // Capture the error message to display to the user
+            if(error instanceof Error){
+                setError(error.message);
+                console.log(error);
+            }
         } finally {
             setIsLoading(false)
         }
