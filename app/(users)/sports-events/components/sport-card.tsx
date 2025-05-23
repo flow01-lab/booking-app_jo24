@@ -22,8 +22,10 @@ export default function SportCards() {
     useEffect(() => {
         const fetchEvents = async () => {
             const { data } = await supabase.from('events').select();
-            setEvents(data);
-            setIsLoading(false);
+            if(data){
+                setEvents(data);
+                setIsLoading(false);
+            }
         }
         
         fetchEvents()

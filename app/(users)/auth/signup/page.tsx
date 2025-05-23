@@ -43,7 +43,7 @@ export default function Page(){
    // Check inputs fields from user entries
    let inputClass = 'input-class';
 
-   function onBlurHandler(e){
+   function onBlurHandler(e: any){
     if(e.target.value === ''){
        return <p className="error-input">Veuillez remplir le champ obligatoire.</p>
     } else {
@@ -57,7 +57,7 @@ export default function Page(){
         lastName: '',
     })
 
-    function handleFirstNameChange(e) {
+    function handleFirstNameChange(e: any) {
         setPerson({
             ...person,
             firstName: e.target.value
@@ -70,7 +70,7 @@ export default function Page(){
         }
     }
 
-    function handleLastNameChange(e) {
+    function handleLastNameChange(e: any) {
         setPerson({
             ...person,
             lastName: e.target.value
@@ -106,7 +106,7 @@ export default function Page(){
 
     // Test for Phone
     const [phoneNum, setPhoneNum] = useState('');
-    function isValidPhone(phone){
+    function isValidPhone(phone: string){
         const regPhone = /^\+?[1-9]\d{1,14}$/;
         if(regPhone.test(phone) === true && phone.length === 12){
             return inputClass += '-valid-phone';
@@ -120,7 +120,7 @@ export default function Page(){
 
     // Test for Email Adress
     const [emailAddr, setEmailAddr] = useState('');
-    function isValidEmail(email){
+    function isValidEmail(email: string){
         const regEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if(regEmail.test(email)){
             return inputClass += '-valid-email';
@@ -130,7 +130,7 @@ export default function Page(){
 
     // Test for Password
     const [passW, setPassW] = useState('');
-    function isValidPassword(password){
+    function isValidPassword(password: string){
         const regPass = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
         if(regPass.test(password)){
             return inputClass += '-valid-passw';
@@ -140,7 +140,7 @@ export default function Page(){
 
     // Test for Password confirmation => Check if it is same passwords
     const [passWCheck, setPassWCheck] = useState('');
-    function isConfirmPassword(passWCheck){
+    function isConfirmPassword(passWCheck: string){
         if(passWCheck === passW && passWCheck !== ''){
             return inputClass += '-valid-passwconf';
         } else if (passWCheck === ''){
@@ -151,7 +151,7 @@ export default function Page(){
 
     // Test for Nationality
     const [nationality, setNationality] = useState('');
-    function isValidNationality(nationality){
+    function isValidNationality(nationality: string){
         const regNation = /^[a-zA-Z]+$/;
         if(regNation.test(nationality)){
             return inputClass += '-valid-national';

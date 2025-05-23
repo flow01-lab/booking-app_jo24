@@ -4,9 +4,9 @@ export const CartContext = createContext({
     items: [],
 });
 
-export const CartProvider = ({ children }) => {
+export const CartProvider = ({ children }: any) => {
     const [state, dispatch] = useReducer(cartReducer, { items: []});
-    const addToCart = (product) => {
+    const addToCart = (product: any) => {
         const updatedCart = [...state.items, product];
         dispatch({
             type: "ADD",
@@ -15,9 +15,9 @@ export const CartProvider = ({ children }) => {
             },
         });
     };
-    const removeFromCart = (id) => {
+    const removeFromCart = (id: any) => {
         const updatedCart = state.items.filter(
-            (currentProduct) => currentProduct.id !== id
+            (currentProduct: any) => currentProduct.id !== id
         );
         dispatch({
             type: "REMOVE",
@@ -34,7 +34,7 @@ export const CartProvider = ({ children }) => {
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 
-const cartReducer = (state, action) => {
+const cartReducer = (state: any, action: any) => {
     const { type, payload } = action;
     switch (type) {
         case "ADD":

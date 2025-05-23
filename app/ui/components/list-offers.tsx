@@ -27,11 +27,11 @@ export default function ListOffers() { //handleValueSelected
 
     const [valueSelected, setValueSelected] = useState(0);
 
-    const handleChange = (e) => {
+    const handleChange = (e: any) => {
        setValueSelected(e.target.value);
     };
 
-    function handleSubmit(e) {
+    function handleSubmit(e: any) {
         e.preventDefault();
 
         const form = e.target;

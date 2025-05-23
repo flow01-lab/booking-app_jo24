@@ -18,12 +18,14 @@ export function SportsEventsData() {
 
     const fetchDataEvents = async () => {
                 const { data, error } = await supabase.from('events').select();
-                const allEvents = data.map((event) => ({
-                    ...event
-                })) as EventsTypes[];
-                setEventsData(allEvents);
-                console.log ("fetching data from 'events' succeeded.");
-                console.log(allEvents);
+                if(data){
+                    const allEvents = data.map((event) => ({
+                        ...event
+                    })) as EventsTypes[];
+                    setEventsData(allEvents);
+                    console.log ("fetching data from 'events' succeeded.");
+                    console.log(allEvents);
+                }
                 
                 if(error){
                     console.log("Sorry, fetching data from 'event' meet an error...")
@@ -41,13 +43,15 @@ export function OffersData(){
 
     const fetchDataOffers = async () => {
         const { data, error } = await supabase.from('offers').select();
-        const allOffers = data.map((offer) => ({
-            ...offer
-        })) as OffersTypes[];
-        setOffersData(allOffers);
-        console.log("fetching data from 'offers' succeeded.");
-        console.log(allOffers);
-
+        if(data){
+            const allOffers = data.map((offer) => ({
+                ...offer
+            })) as OffersTypes[];
+            setOffersData(allOffers);
+            console.log("fetching data from 'offers' succeeded.");
+            console.log(allOffers);
+        }
+        
         if(error){
             console.log("Sorry, fetching data from 'offers' meet an error...")
         }
@@ -64,12 +68,14 @@ export function TicketsData(){
 
     const fetchDataTickets = async () => {
         const { data, error } = await supabase.from('tickets').select();
-        const allTickets = data.map((ticket) => ({
-            ...ticket
-        })) as TicketsTypes[];
-        setTicketsData(allTickets);
-        console.log("fetching data from 'tickets' succeeded.");
-        console.log(allTickets);
+        if(data){
+            const allTickets = data.map((ticket) => ({
+                ...ticket
+            })) as TicketsTypes[];
+            setTicketsData(allTickets);
+            console.log("fetching data from 'tickets' succeeded.");
+            console.log(allTickets);
+        }
 
         if(error){
             console.log("Sorry, fetching data from 'tickets' meet an error...")

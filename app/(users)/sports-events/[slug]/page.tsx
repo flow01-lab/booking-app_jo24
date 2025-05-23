@@ -5,10 +5,12 @@ import EventsData from "@/app/lib/api/events-data";
 
 export async function generateStaticParams(){
     const eventsPosts = await EventsData();
-      
-    return eventsPosts.map((eventpost) => ({
-        slug: eventpost.title,
-    }));
+    if(eventsPosts){
+        return eventsPosts.map((eventpost) => ({
+            slug: eventpost.title,
+        }));
+    }
+    return console.log('Error : no data fetch');
 }
 
 export default async function SampleEventPage({

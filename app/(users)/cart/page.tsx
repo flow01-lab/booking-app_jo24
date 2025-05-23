@@ -1,14 +1,14 @@
 import { useEventsContext } from "@/app/lib/context/cartContext";
 
 export default function CartPage(){
-    const { events, /*decrementQuantity,*/ removeFromCart, /*incrementQuantity*/ } = useEventsContext();
+    const { tickets, /*decrementQuantity,*/ removeFromCart, /*incrementQuantity*/ } = useEventsContext();
 
-    const totalPriceCart = events.reduce((total, event) => total + (event.price * event.quantityTickets), 0);
+    const totalPriceCart = tickets.reduce((total: any, event: any) => total + (event.price * event.quantityTickets), 0);
     
     return (
         <div className="">
             <div className="cartContainer">
-                {events.map(item => {
+                {tickets.map((item: any) => {
                 return (
                     <div className="cart" key={item.id}>
                     <div>
