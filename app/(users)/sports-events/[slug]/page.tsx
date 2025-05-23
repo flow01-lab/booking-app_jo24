@@ -16,12 +16,13 @@ export async function generateStaticParams(){
 export default async function SampleEventPage({
     params,
 } : {
-    params: Promise<{ slug: any }>
+    params: Promise<{ slug: any }[] | void>
 }) {
-    const { slug } = await params;
-    /*const eventsPosts = await EventsData();
-    const data = getEventPost(eventsPosts);*/
-        
+    if(!params){
+        return console.log('Error : Paramètres manquants');
+    }
+    const resolvedParams = await params;
+    const  slug  = Array.isArray(resolvedParams) ? resolvedParams[0]?.slug : resolvedParams?.slug;
     return (
         <>
         <h2>{slug}</h2> 
@@ -35,3 +36,6 @@ export default async function SampleEventPage({
         </>
     )
 }
+
+ /*const eventsPosts = await EventsData();
+    const data = getEventPost(eventsPosts);*/
