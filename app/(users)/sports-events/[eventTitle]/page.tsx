@@ -35,4 +35,12 @@ export default async function SampleEventPage({
 } */
 
  /*const eventsPosts = await EventsData();
-    const data = getEventPost(eventsPosts);*/
+ const data = getEventPost(eventsPosts);*/
+
+export default function Hello(){
+    return (
+        <>
+            <p>Hello World !</p>
+        </>
+    )
+} 
