@@ -1,9 +1,7 @@
-"use client"
-
-import { useEventsContext } from "@/app/lib/context/cartContext";
-
+//import { useEventsContext } from "@/app/lib/context/cartContext";
+/*
 export default function CartPage(){
-    const { tickets, /*decrementQuantity,*/ removeFromCart, /*incrementQuantity*/ } = useEventsContext();
+    const { tickets, /*decrementQuantity, removeFromCart, /*incrementQuantity } = useEventsContext();
 
     const totalPriceCart = tickets.reduce((total: any, event: any) => total + (event.price * event.quantityTickets), 0);
     
