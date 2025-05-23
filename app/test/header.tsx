@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '@/app/utils/supabase/client';
+import { createClient } from '@/app/lib/utils/supabase/client';
 
 export default function Header() {
     const router = useRouter();
