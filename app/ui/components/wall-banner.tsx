@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function WallBanner() {
     return (
-        <div>
+        <div className="h-[300px] overflow-hidden">
             <Image
             src="/img/wallpaper_Paris2024.avif"
             width={3600}

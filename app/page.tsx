@@ -2,6 +2,7 @@
 
 import NavBanner from "@/app/ui/components/nav-banner";
 import PageEvents from "@/app/(users)/sports-events/page";
+import WallBanner from "./ui/components/wall-banner";
 //import SportsEventsData from "./lib/data";
 //import { useState, useEffect } from "react";
 //import { EventsTypes } from "./lib/types/database-generated.types";
@@ -30,6 +31,7 @@ export default function Home() {
                 <NavBanner />
             </header>
             <main className="">
+                <WallBanner />
                 <PageEvents />
             </main>
             <footer>
