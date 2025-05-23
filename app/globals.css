@@ -122,6 +122,15 @@ button.btn-submit:hover {
 }
 
 /* == NAV-TOP : SearchBar == */
+.navtop-scroll{
+  transition: margin-right 5s;
+  display: none;
+}
+.navtop-link:hover{
+  color: rgb(215, 195, 120);
+  margin-bottom: 5px;
+  border-bottom: solid 2px rgb(215, 195, 120);
+}
 #input-searchbar {
   width: 100%;
   height: 30px;

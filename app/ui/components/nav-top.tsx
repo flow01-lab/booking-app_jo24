@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SearchBar from "./search";
 import { OlympicSansReg } from "../fonts";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"
 
 export default function NavTop() {
@@ -12,7 +12,27 @@ export default function NavTop() {
 
     const handleSearchBar = () =>{
         setSearchBarOpen(!searchBarOpen);
-    } 
+    }
+
+    
+
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(()=> {
+        const handleScrollTop = () => {
+            if(window.pageYOffset > 65) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        }
+
+        window.addEventListener('scroll', handleScrollTop);
+        return () => {
+            window.removeEventListener('scroll', handleScrollTop);
+        }
+    }, [])
+
     return (
         <div className="flex flex-row sticky z-[110] top-0 max-h-full mt-20 gap-[-1] flex-wrap">
             <div className="flex flex-row">
@@ -22,20 +42,20 @@ export default function NavTop() {
                         src="/img/logo_olympics_color.svg"
                         width={87}
                         height={40}
-                        className="ml-15 justify-start"
+                        className="ml-15 justify-start my-[12px]"
                         alt="Official Olympics Logo in Colors"
                         />
                     </Link>
                 </div>
                 <div className={`${OlympicSansReg.className} ml-6`}>
-                    <nav className="flex flex-row justify-center items-center flex-wrap">
+                    <nav className={`flex flex-row justify-center items-center flex-wrap ${scrolled ? 'navtop-scroll' : ''}`}>
                         <ul className="flex items-center text-xl">
-                            <li className="p-2 m-3">Olympics Games</li>
-                            <li className="p-2 m-3">Athletes</li>
-                            <li className="p-2 m-3">Sports</li>
-                            <li className="p-2 m-3">News</li>
-                            <li className="p-2 m-3">Olympics Channel</li>
-                            <li className="p-2 m-3">Let&apos;s Move</li>
+                            <li className="p-2 m-3 navtop-link"><Link href={`#`}>Olympics Games</Link></li>
+                            <li className="p-2 m-3 navtop-link"><Link href={`#`}>Athletes</Link></li>
+                            <li className="p-2 m-3 navtop-link"><Link href={`#`}>Sports</Link></li>
+                            <li className="p-2 m-3 navtop-link"><Link href={`#`}>News</Link></li>
+                            <li className="p-2 m-3 navtop-link"><Link href={`#`}>Olympics Channel</Link></li>
+                            <li className="p-2 m-3 navtop-link"><Link href={`#`}>Let&apos;s Move</Link></li>
                         </ul>
                     </nav>
                 </div>
