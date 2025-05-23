@@ -1,7 +1,7 @@
 import { useEventsContext } from "@/app/lib/context/cartContext";
 
 export default function CartPage(){
-    const { events, decrementQuantity, removeFromCart, incrementQuantity } = useEventsContext();
+    const { events, /*decrementQuantity,*/ removeFromCart, /*incrementQuantity*/ } = useEventsContext();
 
     const totalPriceCart = events.reduce((total, event) => total + (event.price * event.quantityTickets), 0);
     
@@ -20,7 +20,7 @@ export default function CartPage(){
                     <div>
                         <div>
                         <button onClick={() => removeFromCart(item.id)}>
-                            remove
+                            Remove
                         </button>
                         </div>
                     </div>
@@ -30,8 +30,10 @@ export default function CartPage(){
             </div>
             <div>
                 <div>Total : {totalPriceCart}</div>
-                <button onClick={clearCart}>clear</button>
+                <button >Clear All</button>
             </div>
         </div>
     )
 }
+
+// OnClick={ClearCart]*/

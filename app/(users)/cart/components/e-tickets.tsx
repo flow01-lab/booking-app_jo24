@@ -1,4 +1,4 @@
 
-export default function Tickets({id, title, price}){
+/*export default function Tickets({id, title, price}){
 
-}
+}*/

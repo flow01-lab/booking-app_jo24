@@ -27,7 +27,7 @@ export default function Page(){
 
             // Handle response if necessary
             const data = await response.json();
-            //...
+            console.log(data); // To remove after test !!! 
         }
         catch (error) {
             // Capture the error message to displau to the user
