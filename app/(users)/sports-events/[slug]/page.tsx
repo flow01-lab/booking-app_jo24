@@ -16,7 +16,7 @@ export async function generateStaticParams(){
 export default async function SampleEventPage({
     params,
 } : {
-    params: Promise<{ slug: string }>
+    params: Promise<{ slug: any }>
 }) {
     const { slug } = await params;
     /*const eventsPosts = await EventsData();
