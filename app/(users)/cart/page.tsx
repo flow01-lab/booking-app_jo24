@@ -37,3 +37,11 @@ export default function CartPage(){
 }
 
 // OnClick={ClearCart]*/
+
+export default function Hello(){
+    return (
+        <>
+            <p>Hello World !</p>
+        </>
+    )
+} 
