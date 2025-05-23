@@ -1,3 +1,5 @@
+"use client"
+
 import { useEventsContext } from "@/app/lib/context/cartContext";
 
 export default function CartPage(){
