@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image";
+import Link from "next/link";
 //import ListOffers from "../components/list-offers";
 import { OlympicHeadlineReg } from "@/app/ui/fonts";
 import { useEffect, useState } from "react";
@@ -48,7 +49,8 @@ export default function SportCards() {
                 const dateEventjs = new Date(dateEventpg);
                 return (
                     <>
-                    <div key={eventItem.id} className={'sport-card'}>
+                    <Link href={`/sports-events/${eventItem.title}`} key={eventItem.id}>
+                    <div className={'sport-card'}>
                         <div className="sport-pict">
                             <Image 
                             src="/img/all-disciplines-paris2024.png"
@@ -68,6 +70,7 @@ export default function SportCards() {
                         <button className="cta-btn" >Get my tickets</button>
 
                     </div>
+                    </Link>
                     </>
                 )
             })};
