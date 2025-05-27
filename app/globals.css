@@ -97,7 +97,38 @@ button.cta-btn::after {
   position: relative;
   right: -10px;
 }
-button.cta-btn:hover{
+button.cta-btn:hover {
+  cursor: pointer;
+  background-color: rgb(215, 195, 120);
+}
+
+button.btn-prev {
+  text-align: center;
+  background-color: #171717;
+  color: #ededed;
+  padding: 8px 5px;
+  margin: 10px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 45px;
+  border-radius: 5px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+button.btn-prev::before {
+  content: url('../public/img/arrow-left-white.svg');
+  width: 30px;
+  height: 30px;
+  margin-left: 0.5rem;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+  left: -10px;
+  top: 3px;
+}
+button.btn-prev:hover {
   cursor: pointer;
   background-color: rgb(215, 195, 120);
 }

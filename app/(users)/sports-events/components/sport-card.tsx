@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 //import { useEventsContext } from "@/app/lib/context/cartContext";
 import { supabase } from '@/app/lib/db-supabase';
 import { EventsTypes } from "@/app/lib/types/database-generated.types";
+import ButtonGetTickets from "@/app/(users)/sports-events/components/btn-getmyticket";
 
 /*interface SCardProps {
     eventItem: EventsTypes;
@@ -47,6 +48,8 @@ export default function SportCards() {
             { isLoading ? <p>Loading...wait please</p> : events.map((eventItem) => {
                 const dateEventpg = eventItem.datetime;
                 const dateEventjs = new Date(dateEventpg);
+                const pathName = eventItem.title;
+                const pathNameLower = pathName.toLowerCase();
                 return (
                     <>
                     <Link href={`/sports-events/${eventItem.title}`} key={eventItem.id}>
@@ -67,13 +70,13 @@ export default function SportCards() {
                         <p className=""><strong>Prix : </strong>{eventItem.price}€ /unité</p>
                         {/*<ListOffers item={item.quantityTickets}/>*/}
                         <p>Valeur de l&apos;offre : </p>
-                        <button className="cta-btn" >Get my tickets</button>
+                        <ButtonGetTickets />
 
                     </div>
                     </Link>
                     </>
                 )
-            })};
+            })}
         </div>
         </>
     );

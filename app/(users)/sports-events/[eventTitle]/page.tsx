@@ -1,46 +1,76 @@
-//import { SportsEventsData } from "@/app/lib/data-supa";
-//import EventsData from "@/app/lib/api/events-data";
-//import { getEventPost } from "@/app/lib/api/events-data";
+import { EventsData } from "@/app/lib/api/events-data";
+import { supabase } from '@/app/lib/db-supabase';
+import Image from "next/image";
+import { OlympicHeadlineCsd, OlympicHeadlineReg } from "@/app/ui/fonts";
+import ButtonGetTickets from "../components/btn-getmyticket";
+import PreviewPage from "@/app/ui/components/btn-preview";
 
-/*
 export async function generateStaticParams(){
     const eventsPosts = await EventsData();
-    if(eventsPosts){
-        return eventsPosts.map((eventpost) => ({
-            event: eventpost.title,
-        }));
+    if(!eventsPosts){
+        console.error('Error: not data fetch');
+        return [];
     }
-    return console.log('Error : no data fetch');
-}*/
-/*
-export default async function SampleEventPage({
+    return eventsPosts.map((eventpost: any) => ({
+        eventTitle: eventpost.title,
+    }));
+}
+
+async function getInfos(title: string) {
+    const { data, error } = await supabase.from('events').select('*').eq('title',title);
+    if(error){
+        console.error('Failed to fecth event by title:', error.message);
+    }
+    return data?.[0];
+}
+
+export default async function SampleEventPage({ 
     params,
-} : {
-    params: Promise<{ eventTitle: string }>
+ } : { 
+    params: Promise<{ eventTitle: string }>;
 }) {
-    const eventTitle = (await params).eventTitle;
-   
+    const { eventTitle } = await params;
+    const infos = await getInfos(eventTitle);
+    const dateEventpg = await infos.datetime;
+    const dateEventjs = new Date(dateEventpg);
+
     return (
         <>
-        <h2>{eventTitle}</h2> 
-        <div>
-            <h3>{}</h3>
-            <p><span>Location : </span>{}</p>
-            <p><span>Adress : </span>{}</p>
-            <p><span>City : </span></p>
-            <p><span></span></p>
+        <div className="flex flex-col items-center bg-[url(/img/Paris_2024_Olympics_Wallpaper.jpeg)] bg-cover">
+            <div className="w-[500px] bg-white items-left">
+                <PreviewPage />
+                <h2 className={`${OlympicHeadlineReg.className} text-center px-25`}>{eventTitle}</h2>
+            </div>
+            
+            {infos ? (
+                <div className="flex flex-col items-center w-[500px] bg-white px-25 pb-5" >
+                    <div className="sport-pict">
+                        <Image 
+                        src="/img/all-disciplines-paris2024.png"
+                        width={96}
+                        height={50}
+                        className={infos.picto}
+                        alt={`Pictogramm `+ infos.title}
+                        />
+                    </div>
+                    <h3 className="font-bold">Informations</h3>
+                    <div className="flex flex-col items-left p-3">
+                        <p><span className="font-bold">Location : </span>{infos.location}</p>
+                        <p><span className="font-bold">Adress : </span>{infos.adressnum}, {infos.adressroad}</p>
+                        <p><span className="font-bold">City : </span>{infos.city}</p>
+                        <p><span className="font-bold">Postal Code : </span>{infos.zipcode}</p>
+                        <p><span className="font-bold">Date : </span>{dateEventjs.toLocaleDateString()}</p>
+                        <p><span className="font-bold">Hour : </span>{dateEventjs.toLocaleTimeString()}</p>
+                        <p><span className="font-bold">Price : </span>{infos.price} €</p>
+                    </div>
+                    <h3 className="font-bold">Description</h3>
+                    <p className="text-center p-3">{infos.description}</p>
+                    <ButtonGetTickets />
+                </div>
+            ) : (
+                <p>Aucune donnée trouvée pour cet événement.</p>
+            )}
         </div>
         </>
     )
-} */
-
- /*const eventsPosts = await EventsData();
- const data = getEventPost(eventsPosts);*/
-
-export default function Hello(){
-    return (
-        <>
-            <p>Hello World !</p>
-        </>
-    )
-} 
+}
