@@ -12,12 +12,12 @@ export async function generateStaticParams(){
         return [];
     }
     return eventsPosts.map((eventpost: any) => ({
-        eventTitle: eventpost.title,
+        eventId: eventpost.id,
     }));
 }
 
-async function getInfos(title: string) {
-    const { data, error } = await supabase.from('events').select('*').eq('title',title);
+async function getInfos(id: string) {
+    const { data, error } = await supabase.from('events').select('*').eq('id',id);
     if(error){
         console.error('Failed to fecth event by title:', error.message);
     }
@@ -27,23 +27,22 @@ async function getInfos(title: string) {
 export default async function SampleEventPage({ 
     params,
  } : { 
-    params: Promise<{ eventTitle: string }>;
+    params: Promise<{ eventId: string }>;
 }) {
-    const { eventTitle } = await params;
-    const infos = await getInfos(eventTitle);
+    const { eventId } = await params;
+    const infos = await getInfos(eventId);
     const dateEventpg = await infos.datetime;
     const dateEventjs = new Date(dateEventpg);
 
     return (
         <>
         <div className="flex flex-col items-center bg-[url(/img/Paris_2024_Olympics_Wallpaper.jpeg)] bg-cover">
-            <div className="w-[500px] bg-white items-left">
-                <PreviewPage />
-                <h2 className={`${OlympicHeadlineReg.className} text-center px-25`}>{eventTitle}</h2>
-            </div>
-            
             {infos ? (
                 <div className="flex flex-col items-center w-[500px] bg-white px-25 pb-5" >
+                    <div className="w-[500px] bg-white items-left">
+                        <PreviewPage />
+                        <h2 className={`${OlympicHeadlineReg.className} text-center px-25`}>{infos.title}</h2>
+                    </div>
                     <div className="sport-pict">
                         <Image 
                         src="/img/all-disciplines-paris2024.png"

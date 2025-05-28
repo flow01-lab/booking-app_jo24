@@ -48,11 +48,10 @@ export default function SportCards() {
             { isLoading ? <p>Loading...wait please</p> : events.map((eventItem) => {
                 const dateEventpg = eventItem.datetime;
                 const dateEventjs = new Date(dateEventpg);
-                const pathName = eventItem.title;
-                const pathNameLower = pathName.toLowerCase();
+                
                 return (
                     <>
-                    <Link href={`/sports-events/${eventItem.title}`} key={eventItem.id}>
+                    <Link href={`/sports-events/${eventItem.id}`} key={eventItem.id}>
                     <div className={'sport-card'}>
                         <div className="sport-pict">
                             <Image 

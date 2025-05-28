@@ -49,57 +49,58 @@ export type Database = MergeDeep<
         }
         events: {
           Row: {
-            adressnum: number
+            adressnum: number | null
             adressroad: string
             city: string
             created_at: string
             datetime: string
             description: string
-            id: number
+            id: string
             location: string
             picto: string
             price: number
-            sells: number
+            sells: number | null
             stocks: number
             title: string
+            updated_at: string
             zipcode: string
-            quantityTickets: number
-            offertitle: string
           }
           Insert: {
-            adressnum?: number
+            adressnum?: number | null
             adressroad: string
             city: string
             created_at?: string
             datetime?: string
             description?: string
-            id?: number
+            id?: string
             location: string
             picto?: string
             price: number
-            sells?: number
+            sells?: number | null
             stocks: number
-            title?: string
+            title: string
+            updated_at?: string
             zipcode: string
           }
           Update: {
-            adressnum?: number
+            adressnum?: number | null
             adressroad?: string
             city?: string
             created_at?: string
             datetime?: string
             description?: string
-            id?: number
+            id?: string
             location?: string
             picto?: string
             price?: number
-            sells?: number
+            sells?: number | null
             stocks?: number
             title?: string
+            updated_at?: string
             zipcode?: string
           }
-          Relationships: []
-        }
+        Relationships: []
+      }
 
         offers: {
           Row: {
@@ -131,7 +132,7 @@ export type Database = MergeDeep<
         
         tickets: {
           Row: {
-            created_at: string | null
+            created_at: string
             eventadressnum: number
             eventadressroad: string
             eventcity: string
@@ -143,7 +144,7 @@ export type Database = MergeDeep<
             userkey: string
           }
           Insert: {
-            created_at?: string | null
+            created_at?: string
             eventadressnum: number
             eventadressroad: string
             eventcity: string
@@ -155,7 +156,7 @@ export type Database = MergeDeep<
             userkey: string
           }
           Update: {
-            created_at?: string | null
+            created_at?: string
             eventadressnum?: number
             eventadressroad?: string
             eventcity?: string

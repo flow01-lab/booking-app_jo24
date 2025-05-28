@@ -41,7 +41,7 @@ CREATE DOMAIN postal_code AS TEXT DEFAULT '75000';
   create domain postal_code as text default '75000' check (value ~ '^\d{5}$' or value ~ '^\d{5}-\d{4}$');
 
     CREATE TABLE IF NOT EXISTS events (
-      id SERIAL PRIMARY KEY,
+      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
       created_at TIMESTAMPTZ DEFAULT NOW(),
       picto TEXT,
       title VARCHAR(255) NOT NULL,

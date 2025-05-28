@@ -81,13 +81,14 @@ export type Database = {
           created_at: string | null
           datetime: string | null
           description: string | null
-          id: number
+          id: string
           location: string
           picto: string | null
           price: number
           sells: number | null
           stocks: number
           title: string
+          updated_at: string
           zipcode: string
         }
         Insert: {
@@ -97,13 +98,14 @@ export type Database = {
           created_at?: string | null
           datetime?: string | null
           description?: string | null
-          id?: number
+          id?: string
           location: string
           picto?: string | null
           price: number
           sells?: number | null
           stocks: number
           title: string
+          updated_at?: string
           zipcode: string
         }
         Update: {
@@ -113,13 +115,14 @@ export type Database = {
           created_at?: string | null
           datetime?: string | null
           description?: string | null
-          id?: number
+          id?: string
           location?: string
           picto?: string | null
           price?: number
           sells?: number | null
           stocks?: number
           title?: string
+          updated_at?: string
           zipcode?: string
         }
         Relationships: []
