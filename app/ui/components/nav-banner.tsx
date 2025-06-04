@@ -23,8 +23,8 @@ export default function NavBanner() {
             <div className="flex-1 p-8 content-center justify-items-center">{/* == Home Page Logo == */}
                 <Image
                 src="/img/Paris2024-Official-Logo.png"
-                width={300}
-                height={300}
+                width={280}
+                height={280}
                 className="flex m-10"
                 alt="Logo Officiel Paris 2024"
                 />

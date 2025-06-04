@@ -18,7 +18,7 @@ const CartButton:React.FC<Props> = ({handleCartModal}) => {
                 src="/img/ticket.svg"
                 width={55}
                 height={55}
-                className="px-4 py-2 relative"
+                className="px-4 py-2 relative hover"
                 alt="Cart | Panier"
                 />
                 <div className="absolute menu-cart-notif">

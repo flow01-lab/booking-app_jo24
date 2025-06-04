@@ -50,30 +50,30 @@ export default function SportCards() {
                 const dateEventjs = new Date(dateEventpg);
                 
                 return (
-                    <>
-                    <Link href={`/sports-events/${eventItem.id}`} key={eventItem.id}>
-                    <div className={'sport-card'}>
-                        <div className="sport-pict">
-                            <Image 
-                            src="/img/all-disciplines-paris2024.png"
-                            width={96}
-                            height={50}
-                            className={eventItem.picto}
-                            alt=""
-                            />
-                        </div>
-                        <h4 className={`${OlympicHeadlineReg.className}`}>{eventItem.title}</h4>
-                        <p className="">{eventItem.description}</p>
-                        <span className="">{dateEventjs.toLocaleDateString()+' - '+dateEventjs.toLocaleTimeString()}</span>
-                        <span className="">{eventItem.location}</span>
-                        <p className=""><strong>Prix : </strong>{eventItem.price}€ /unité</p>
-                        {/*<ListOffers item={item.quantityTickets}/>*/}
-                        <p>Valeur de l&apos;offre : </p>
-                        <ButtonGetTickets />
+                    <div className="" key={eventItem.id}>
+                        <Link href={`/sports-events/${eventItem.id}`}>
+                            <div className={`sport-card`}>
+                                <div className="sport-pict">
+                                    <Image 
+                                    src="/img/all-disciplines-paris2024.png"
+                                    width={96}
+                                    height={50}
+                                    className={eventItem.picto}
+                                    alt=""
+                                    />
+                                </div>
+                                <h4 className={`${OlympicHeadlineReg.className}`}>{eventItem.title}</h4>
+                                <p className="">{eventItem.description}</p>
+                                <span className="">{dateEventjs.toLocaleDateString()+' - '+dateEventjs.toLocaleTimeString()}</span>
+                                <span className="">{eventItem.location}</span>
+                                <p className=""><strong>Prix : </strong>{eventItem.price}€ /unité</p>
+                                {/*<ListOffers item={item.quantityTickets}/>*/}
+                                <p>Valeur de l&apos;offre : </p>
+                                <ButtonGetTickets />
 
+                            </div>
+                        </Link>
                     </div>
-                    </Link>
-                    </>
                 )
             })}
         </div>

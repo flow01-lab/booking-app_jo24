@@ -14,13 +14,11 @@ export default function NavTop() {
         setSearchBarOpen(!searchBarOpen);
     }
 
-    
-
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(()=> {
         const handleScrollTop = () => {
-            if(window.pageYOffset > 65) {
+            if(window.pageYOffset > 50) {
                 setScrolled(true);
             } else {
                 setScrolled(false);
@@ -34,7 +32,7 @@ export default function NavTop() {
     }, [])
 
     return (
-        <div className="flex flex-row sticky z-[110] top-0 max-h-full mt-20 gap-[-1] flex-wrap">
+        <div className="flex flex-row flex-wrap flex-[50%] sticky z-[120] top-0 mt-20">
             <div className="flex flex-row">
                 <div className="flex flex-row items-center">
                     <Link href="/">
