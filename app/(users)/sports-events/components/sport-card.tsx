@@ -2,24 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-//import ListOffers from "../components/list-offers";
+import ListOffers from "@/app/ui/components/list-offers";
 import { OlympicHeadlineReg } from "@/app/ui/fonts";
 import { useEffect, useState } from "react";
-//import { useEventsContext } from "@/app/lib/context/cartContext";
 import { supabase } from '@/app/lib/db-supabase';
 import { EventsTypes } from "@/app/lib/types/database-generated.types";
 import ButtonGetTickets from "@/app/(users)/sports-events/components/btn-getmyticket";
 
-/*interface SCardProps {
-    eventItem: EventsTypes;
-}
-{eventItem}: SCardProps */
 
 export default function SportCards() {
     
     // Method for 'Events' Table Call and fetch data.
     const [isLoading, setIsLoading] = useState(true);
     const [events, setEvents] = useState<EventsTypes[]>([]);
+    const [selectedQty, setSelectedQty] = useState<number>(1);
 
     useEffect(() => {
         const fetchEvents = async () => {
@@ -33,15 +29,6 @@ export default function SportCards() {
         fetchEvents()
     }, []);
 
-    // Use Context from 'useEventsContext' dependance.
-    /*
-    const {addToCart} = useEventsContext();
-    const handleAddToCart = () => {
-        addToCart(eventItem);
-    }
-
-    onClick={handleAddToCart}
-    */
     return (
         <>
         <div className="flex flex-wrap justify-center ">
@@ -51,28 +38,31 @@ export default function SportCards() {
                 
                 return (
                     <div className="" key={eventItem.id}>
-                        <Link href={`/sports-events/${eventItem.id}`}>
+                        
                             <div className={`sport-card`}>
-                                <div className="sport-pict">
-                                    <Image 
-                                    src="/img/all-disciplines-paris2024.png"
-                                    width={96}
-                                    height={50}
-                                    className={eventItem.picto}
-                                    alt=""
-                                    />
-                                </div>
-                                <h4 className={`${OlympicHeadlineReg.className}`}>{eventItem.title}</h4>
-                                <p className="">{eventItem.description}</p>
-                                <span className="">{dateEventjs.toLocaleDateString()+' - '+dateEventjs.toLocaleTimeString()}</span>
-                                <span className="">{eventItem.location}</span>
-                                <p className=""><strong>Prix : </strong>{eventItem.price}€ /unité</p>
-                                {/*<ListOffers item={item.quantityTickets}/>*/}
-                                <p>Valeur de l&apos;offre : </p>
-                                <ButtonGetTickets />
-
+                                <Link href={`/sports-events/${eventItem.id}`}>
+                                    <div className="sport-pict">
+                                        <Image 
+                                        src="/img/all-disciplines-paris2024.png"
+                                        width={96}
+                                        height={50}
+                                        className={eventItem.picto}
+                                        alt=""
+                                        />
+                                    </div>
+                                    <h4 className={`${OlympicHeadlineReg.className}`}>{eventItem.title}</h4>
+                                    <p className="">{eventItem.description}</p>
+                                    <span className="">{dateEventjs.toLocaleDateString()+' - '+dateEventjs.toLocaleTimeString([], { hour: '2-digit', minute:'2-digit' })}</span>
+                                    <br/>
+                                    <span className="">{eventItem.city}</span>
+                                    <br/>
+                                    <span className="">{eventItem.location}</span>
+                                    <p className=""><strong>{eventItem.price} €</strong> /place</p>
+                                </Link>
+                                <ListOffers onSelect={setSelectedQty}/>
+                                <ButtonGetTickets item={eventItem} quantity={selectedQty}/>
                             </div>
-                        </Link>
+
                     </div>
                 )
             })}

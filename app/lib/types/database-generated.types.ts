@@ -59,6 +59,7 @@ export type Database = MergeDeep<
             location: string
             picto: string
             price: number
+            quantityTickets: number
             sells: number | null
             stocks: number
             title: string
@@ -76,6 +77,7 @@ export type Database = MergeDeep<
             location: string
             picto?: string
             price: number
+            quantityTickets?: number
             sells?: number | null
             stocks: number
             title: string
@@ -93,6 +95,7 @@ export type Database = MergeDeep<
             location?: string
             picto?: string
             price?: number
+            quantityTickets?: number
             sells?: number | null
             stocks?: number
             title?: string

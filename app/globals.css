@@ -18,6 +18,21 @@
     --foreground: #ededed;
   }
 }
+/*===== OLYMPICS CIRCLES COLOURS =====*/
+/*-- Blue --*/
+/* color: #0081c8; */
+/*-- Black --*/
+/* color: #000000; */
+/*-- Red --*/
+/* color: #ee334e; */ 
+/*-- Yellow --*/
+/* color: #fcb131;
+/*-- Green --*/
+/* color: #00a751; */
+/*===== END OLYMPICS CIRCLES COLOURS =====*/ 
+
+/* === GLOBAL STYLES === */
+/*-- Global styles for the whole app --*/
 
 body {
   background: var(--background);
@@ -101,8 +116,8 @@ button.cta-btn::after {
 button.cta-btn:hover {
   cursor: pointer;
   background-color: #d7c378;
-  border-radius: 2px;
-  transition: 15ms;
+  border-radius: 4px;
+  transition: 25ms;
 }
 
 button.btn-prev {
@@ -163,7 +178,7 @@ button.btn-submit:hover {
 .navtop-link:hover{
   color: rgb(215, 195, 120);
   margin-bottom: 5px;
-  border-bottom: solid 2px rgb(215, 195, 120);
+  border-bottom: solid 2px #d7c378;
 }
 #input-searchbar {
   width: 100%;
@@ -230,6 +245,7 @@ button.btn-submit:hover {
 
 /*-- Container for Pictogram image in Sports Cards --*/
 .sport-pict {
+  justify-self: center;
   width: 96px;
   height: 96px;
   mask: initial;

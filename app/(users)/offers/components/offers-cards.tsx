@@ -32,7 +32,7 @@ export default function OffersCards() {
                         <h4 key={offer.title} className={`${Paris2024_X_Weight.className} flex flex-row`}>{offer.title}</h4>
                         <span key={offer.ticketsqty}><strong>e-tickets inclus :</strong> {offer.ticketsqty}</span>
                         <p key={offer.description} className="p-5 text-center">{offer.description}</p>
-                        <button className="cta-btn">Choisir</button>
+                        <button className="cta-btn">Découvrir</button>
                     </div>
                 )
                 })}

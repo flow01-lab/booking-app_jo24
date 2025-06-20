@@ -1,68 +1,60 @@
 'use client'
 
 import { createContext, useContext, useState, ReactNode } from "react";
-import { EventsTypes } from "@/app/lib/types/database-generated.types";
+import { EventsTypes, OffersTypes } from "@/app/lib/types/database-generated.types";
 
-interface EventsContextType {
+interface CartContextType {
    tickets: EventsTypes[];
-   addToCart: (ticket: EventsTypes) => void;
-   decrementQuantity: (ticketId: number) => void;
-   incrementQuantity: (ticketId: number) => void;
-   removeFromCart: (ticketId: number) => void;
+   addToCart: (ticket: Omit<EventsTypes, 'quantityTickets'>, quantity?: number) => void;
+   removeFromCart: (ticketId: string) => void;
+   incrementQuantity: (ticketId: string) => void;
+   decrementQuantity: (ticketId: string) => void;
 }
 
-interface EventsProviderProps {
-    children: ReactNode;
-}
+const CartContext = createContext<CartContextType | undefined>(undefined);
 
-
-const EventsContext = createContext<EventsContextType | undefined>(undefined);
-
-export const EventsProvider : React.FC<EventsProviderProps> = ({children}) => {
+export const CartProvider = ({children}: {children: ReactNode}) => {
     const [tickets, setTickets] = useState<EventsTypes[]>([]);
 
-    const addToCart = (ticket: EventsTypes) => {
-        const existingTicketIndex = tickets.findIndex((t) => t.id === ticket.id);
-        if(existingTicketIndex !== -1) {
-            const updatedTickets = [...tickets];
-            updatedTickets[existingTicketIndex].quantityTickets += 1;
-            setTickets(updatedTickets)
-        }
-    }
-    
-    const decrementQuantity = (ticketId: number) => {
-        const updatedTickets = tickets.map(ticket => {
-            if(ticket.id === ticketId) {
-                if(ticket.quantityTickets > 1){
-                    return {...tickets, quantityTickets: ticket.quantityTickets -1}
-                }else {
-                    return null;
-                }
+    const addToCart = (ticket: Omit<EventsTypes, 'quantityTickets'>, quantity = 1) => {
+        setTickets(prev => {
+            const found = prev.find(t => t.id === ticket.id);
+            if (found) {
+                return prev.map(t =>
+                    t.id === ticket.id ? 
+                    { ...t, quantityTickets: t.quantityTickets + quantity } : t
+                );
             }
-            return ticket;
-        }).filter(event => event !== null) as EventsTypes[];
-        setTickets(updatedTickets);
-    }
+            return [...prev, { ...ticket, quantityTickets: quantity }];
+        });
+    };
+
+    const removeFromCart = (ticketId: string) => {
+        setTickets(prev => prev.filter(t => t.id !== ticketId));
+    };
+
+    const incrementQuantity = (ticketId: string) => {
+        setTickets(prev => prev.map(t => 
+            t.id === ticketId ? {...t, quantityTickets: t.quantityTickets + 1} : t));
+    };
+
+    const decrementQuantity = (ticketId: string) => {
+        setTickets(prev => prev.map(t =>
+            t.id === ticketId ? { ...t, quantityTickets: t.quantityTickets - 1 } : t));
+        };
     
-    const incrementQuantity = (ticketId: number) => {
-        setTickets(prevEvents => prevEvents.map(ticket => ticket.id === ticketId ? {...ticket, quantityTickets: ticket.quantityTickets + 1} : ticket))
-    }
-
-    const removeFromCart = (ticketId: number) => {
-        setTickets(tickets.filter(ticket => ticket.id !== ticketId))
-    }
     return (
-        <EventsContext.Provider value={{tickets, addToCart, removeFromCart, decrementQuantity, incrementQuantity}}>
+        <CartContext.Provider value={{ tickets, addToCart, removeFromCart, incrementQuantity, decrementQuantity }}>
             {children}
-        </EventsContext.Provider>
+        </CartContext.Provider>
     )
-}
+};
 
-export const useEventsContext = () => {
-    const context = useContext(EventsContext);
+export const useCartContext = () => {
+    const context = useContext(CartContext);
 
     if(!context){
-        throw new Error('Erreur');
+        throw new Error('Erreur with CartContext: useCartContext must be used within a CartProvider');
     }
     return context;
-}
+};

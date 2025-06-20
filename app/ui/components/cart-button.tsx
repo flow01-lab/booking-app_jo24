@@ -1,16 +1,16 @@
 import Image from "next/image";
-//import { useEventsContext } from "@/app/lib/context/cartContext";
+import { useCartContext } from "@/app/lib/context/cartContext";
 
 interface Props {
     handleCartModal: ()=> void;
 }
 
 const CartButton:React.FC<Props> = ({handleCartModal}) => {
-    /*
-    const {tickets} = useEventsContext();
-    const totalTicketsCount = tickets.reduce((totalCount, event)=> totalCount + event.quantityTickets, 0)
-    {totalTicketsCount}
-    */
+    const { tickets } = useCartContext();
+    const totalTicketsCount = tickets.reduce((totalCount, ticket) => totalCount + ticket.quantityTickets, 0);
+    console.log('Tickets in cart:', tickets);
+    // Log the total count of tickets
+    console.log('Total tickets count:', totalTicketsCount);
     return (
         <div className="relative z-[100]">
             <button className="bg-blue-50 rounded-full relative btn-user" type="button" onClick={handleCartModal}>
@@ -23,7 +23,7 @@ const CartButton:React.FC<Props> = ({handleCartModal}) => {
                 />
                 <div className="absolute menu-cart-notif">
                     <span className="cart-notif">
-                        0
+                        {totalTicketsCount}
                     </span>
                 </div>
             </button>

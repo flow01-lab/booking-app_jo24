@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { OlympicSansReg } from "./ui/fonts";
 import "./globals.css";
-//import { OlympicSans } from "@/app/ui/fonts";
 import UserBanner from "@/app/ui/components/user-banner";
 import NavTop from "@/app/ui/components/nav-top";
 import Footer from "@/app/ui/components/footer";
-//import { EventsProvider } from "@/app/lib/context/cartContext";
-//import { CartContext } from "@/app/lib/context/cartContextStore";
+import { CartProvider } from "@/app/lib/context/cartContext";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,15 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/*<EventsProvider>*/}
-        {/*<CartContext>*/}
+      <body className={`${geistSans.variable} ${geistMono.variable} ${OlympicSansReg.className} antialiased`}>
+        <CartProvider>
           <UserBanner />
           <NavTop />
           {children}
           <Footer/>
-        {/*</CartContext>*/}
-        {/*</EventsProvider>*/}
+        </CartProvider>
         
       </body>
     </html>
