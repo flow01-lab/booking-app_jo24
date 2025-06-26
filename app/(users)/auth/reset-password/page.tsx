@@ -1,5 +1,5 @@
 'use client'
-
+/*
 import { useState, useEffect } from 'react';
 import { supabase } from '@/app/lib/db-supabase';
 import { OlympicHeadlineCsd } from '@/app/ui/fonts';
@@ -48,4 +48,13 @@ export default function ResetPassword() {
       {status && <p>{status}</p>}
     </div>
   );
+}*/
+
+export default function ResetPasswordPage() {
+
+  return (
+    <>
+    <p>Actualy, this page is in build. We are sorry for that ...</p>
+    </>
+  )
 }
