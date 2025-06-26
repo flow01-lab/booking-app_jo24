@@ -25,7 +25,7 @@ export default function SignUpForm(){
                                 type="text" 
                                 id="surname" 
                                 name="surname"
-                                placeholder="Votre Nom" 
+                                placeholder="DE COUBERTIN" 
                                 autoComplete="surname" 
                                 aria-describedby="surname-error"
                                 className={state?.errors?.options ? 'border-red-500' : ''}
@@ -44,7 +44,7 @@ export default function SignUpForm(){
                                 type="text" 
                                 id="firstname" 
                                 name="firstname" 
-                                placeholder="Votre Prénom" 
+                                placeholder="Pierre" 
                                 autoComplete="firstname" 
                                 aria-describedby="firstname-error" 
                                 className={state?.errors?.options ? 'border-red-500' : ''}
@@ -118,19 +118,19 @@ export default function SignUpForm(){
                             )}
                         </div>
                         <div className="flex flex-col flex-1">
-                            <label htmlFor="password-check" className="required">Confirmation de mot de passe</label>
+                            <label htmlFor="confirm-password" className="required">Confirmation de mot de passe</label>
                             <input 
                                 type="password" 
-                                id="password-check" 
-                                name="password-check"
+                                id="confirm-password" 
+                                name="confirm-password"
                                 placeholder="Confirmation mot de passe"
                                 autoComplete=""
-                                aria-describedby="password-check-error"
+                                aria-describedby="confirm-password-error"
                                 className={state?.errors?.password ? 'border-red-500' : ''}
                                 required
                             />
                             {state?.errors?.password && (
-                                <p id="password-check-error" className="text-sm text-red-500">
+                                <p id="confirm-password-error" className="text-sm text-red-500">
                                     {state.errors.password[0]}
                                 </p>
                             )}
@@ -164,7 +164,7 @@ export default function SignUpForm(){
                             soient utilisées et traitées dans le respect de la législation en vigueur en Europe.</p>
                     </div>
                     <div className="justify-items-center mt-8">
-                        <button className="cta-btn" type="submit" disabled={isPending}>
+                        <button className="cta-btn" id="send-form-user" type="submit" disabled={isPending}>
                             {isPending ? 'Loading...' : 'Soumettre'}
                         </button>
                     </div>

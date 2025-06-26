@@ -1,0 +1,13 @@
+{
+  "reporter": ["html", "text", "lcov"],
+  "exclude": [
+    "coverage/**",
+    "cypress/**",
+    "*.config.js",
+    "*.d.ts",
+    "postcss.config.js",
+    "tailwind.config.js"
+  ],
+  "extension": [".js", ".jsx", ".ts", ".tsx"],
+  "tempDir": "./coverage/tmp"
+}

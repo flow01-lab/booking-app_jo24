@@ -8,9 +8,11 @@ interface Props {
 const CartButton:React.FC<Props> = ({handleCartModal}) => {
     const { tickets } = useCartContext();
     const totalTicketsCount = tickets.reduce((totalCount, ticket) => totalCount + ticket.quantityTickets, 0);
-    console.log('Tickets in cart:', tickets);
+    // Debugging logs for development
+    // Uncomment the following lines to log the tickets and total count in the console
+    //console.log('Tickets in cart:', tickets);
     // Log the total count of tickets
-    console.log('Total tickets count:', totalTicketsCount);
+    //console.log('Total tickets count:', totalTicketsCount);
     return (
         <div className="relative z-[100]">
             <button className="bg-blue-50 rounded-full relative btn-user" type="button" onClick={handleCartModal}>

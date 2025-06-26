@@ -7,8 +7,7 @@ import UpButton from "./ui/components/up-button";
 
 
 export default function Home() {
-    // const [user, setUser] = useState([]);
-    // const [loading, setLoading] = useState(true);
+    
     return (
         <>
             <header className="z-0">

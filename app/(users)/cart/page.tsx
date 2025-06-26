@@ -23,9 +23,11 @@ export default function CartPage(){
     }
 
     const totalPrice = tickets.reduce((total, ticket) => total + (ticket.price * ticket.quantityTickets), 0);
-    console.log('Tickets in cart:', tickets);
+    // Debugging logs for development
+    // Uncomment the following lines to log the tickets and total price in the console
+    //console.log('Tickets in cart:', tickets);
     // Log the total price of tickets
-    console.log('Total price:', totalPrice);
+    //console.log('Total price:', totalPrice);
 
     return(
         <>
@@ -79,7 +81,7 @@ export default function CartPage(){
                         <div>
                             <p className="py-5 text-xl"><span className={`${OlympicSansMed.className} font-bold`}>TOTAL : </span><span><strong>{totalPrice} €</strong></span></p>
                             <div className=" flex text-center justify-center items-center">
-                                <Link href="">
+                                <Link href="/payment">
                                     <button className="cta-btn rounded-md">Valider le panier</button>
                                 </Link>
                                 <Link href="/sports-events">

@@ -27,8 +27,8 @@ export default function LoginForm(){
                     alt="Logo Officiel Paris 2024"
                     />
                 </div>
-                <form action={action} className="signin-form flex flex-col items-center" autoComplete="on">
-                    <div className="justify-items-center pb-[8px]">
+                <form action={action} className="signin-form flex flex-col items-center" id="signin-form" autoComplete="on">
+                    <div className="flex flex-col justify-items-center pb-[8px]">
                         <label htmlFor="email" className={`${OlympicSansReg.className}`}>Identifiant / E-mail</label>
                         <input 
                             id="email" 
@@ -47,7 +47,7 @@ export default function LoginForm(){
                         )}
                     </div>
                     
-                    <div className="justify-items-center pb-[2px]">
+                    <div className="flex flex-col justify-items-center pb-[2px]">
                         <label htmlFor="password" className={`${OlympicSansReg.className}`}>Mot de passe / Password</label>
                         <input 
                             id="password" 
@@ -76,7 +76,7 @@ export default function LoginForm(){
                     </div>
                 </form>
                 <div className="mt-5 mb-10 pb-8 text-center">
-                    <span className="">Vous n&apos;avez pas encore de compte ? <Link href="./signup" className="link-text">Créer un compte</Link>.</span>
+                    <span className="">Vous n&apos;avez pas encore de compte ? <Link href="./signup" className="link-text" id="link-new-user">Créer un compte</Link>.</span>
                 </div>
             </div>
         </>

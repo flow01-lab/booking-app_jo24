@@ -3,7 +3,7 @@
 import { supabase } from "@/app/lib/db-supabase";
 import React, { useEffect, useState } from "react";
 import { Tables } from "@/app/lib/types/supabase_database.types";
-import { OffersTypes } from "@/app/lib/types/database-generated.types";
+//import { OffersTypes } from "@/app/lib/types/database-generated.types";
 
 
 

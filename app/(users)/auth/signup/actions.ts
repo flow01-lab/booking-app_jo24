@@ -67,6 +67,6 @@ export async function processSignUp(prevState: ActionResponse | null, formData: 
     redirect('/error')
   }
 
-  revalidatePath('/', 'layout')
-  redirect('/')
+  revalidatePath('/signup/success', 'layout')
+  redirect('/signup/success')
 }

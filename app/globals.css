@@ -251,7 +251,6 @@ button.btn-submit:hover {
   mask: initial;
   mask-size: contain;
   overflow: hidden;
-  /*mask-image: linear-gradient(rgb(0 0 0 / 100%), transparent);*/
 }
 /*- Rules for Picto postition in Image constainer of Sports Cards -*/
 .xBasketBall {
@@ -390,7 +389,7 @@ button.btn-submit:hover {
   object-position: 0px calc(38 * -100px);
 }
 
-.signin-form > div input, div label {
+.signin-form > div input, .signin-form > div label {
   text-align: center;
   justify-content: center;
 }
@@ -411,7 +410,7 @@ button.btn-submit:hover {
   color: #000;
 }
 
-.signup-form > input, label {
+.signup-form > input, .signup-form > label {
   text-align: left;
   justify-content: left;
   display: flex;
@@ -427,17 +426,6 @@ button.btn-submit:hover {
   box-shadow: 0px 0px 5px gray;
 }
 
-.input-class-valid, .input-class-valid-surname, .input-class-valid-firstname, 
-.input-class-valid-phone, .input-class-valid-email, 
-.input-class-valid-passw, .input-class-valid-passwconf, 
-.input-class-valid-national {
-  border: green solid 0.8px;
-  border-radius: 3px;
-  padding: 2px 4px;
-  margin: 20px 15px;
-  color: #000;
-  box-shadow: 0px 0px 5px green;
-}
 
 .signup-form > label {
   margin-left: 10px;

@@ -3,11 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev ",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cy:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test:e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
+    "component": "cross-env NEXT_TEST=1 cypress open --component",
+    "component:headless": "cross-env NEXT_TEST=1 cypress run --component --env coverage=true",
+    "e2e": "cross-env NEXT_TEST=1 start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
+    "e2e:headless": "cross-env NEXT_TEST=1 start-server-and-test dev http://localhost:3000 \"cypress run --e2e --env coverage=true\"",
+    "coverage-report": "nyc report --reported=text"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -21,22 +28,32 @@
     "punycode": "^2.3.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-use-shoppingcart": "^0.1.5",
+    "react-toastify": "^11.0.5",
     "swr": "^2.3.3",
     "type-fest": "^4.40.0",
     "zod": "^3.25.49"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.14.5",
     "@eslint/eslintrc": "^3.3.1",
     "@tailwindcss/postcss": "^4.1.1",
+    "@testing-library/cypress": "^10.0.3",
     "@types/node": "^20.17.30",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
+    "babel-loader": "^10.0.0",
+    "babel-plugin-istanbul": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "cypress": "^14.5.0",
     "eslint": "^9.23.0",
     "eslint-config-next": "15.3.0",
+    "istanbul-lib-coverage": "^3.2.2",
+    "nyc": "^17.1.0",
+    "start-server-and-test": "^2.0.12",
     "tailwindcss": "^4.1.1",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.9"
   },
   "overrides": {
     "@types/react": "19.0.12",

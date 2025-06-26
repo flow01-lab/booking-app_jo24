@@ -17,21 +17,23 @@ const CartModal:React.FC<Props> = ({cartModalOpen, handleCartModal}) => {
     
     const handleDecrement = (ticketId: string) => {
         decrementQuantity(ticketId);
-        console.log('Decremented quantity for ticket:', ticketId);
+        //console.log('Decremented quantity for ticket:', ticketId);
     }
     const handleRemove = (ticketId: string) => {
         removeFromCart(ticketId);
-        console.log('Removed ticket from cart:', ticketId);
+        //console.log('Removed ticket from cart:', ticketId);
     }
     const handleIncrement = (ticketId: string) => {
         incrementQuantity(ticketId);
-        console.log('Incremented quantity for ticket:', ticketId);
+        //console.log('Incremented quantity for ticket:', ticketId);
     }
 
     const totalPrice = tickets.reduce((total, ticket) => total + (ticket.price * ticket.quantityTickets), 0);
-    console.log('Tickets in cart:', tickets);
+    // Debugging logs for development
+    // Uncomment the following lines to log the tickets and total price in the console
+    //console.log('Tickets in cart:', tickets);
     // Log the total price of tickets
-    console.log('Total price:', totalPrice);
+    //console.log('Total price:', totalPrice);
     return(
         <>
         {cartModalOpen && (
@@ -75,7 +77,7 @@ const CartModal:React.FC<Props> = ({cartModalOpen, handleCartModal}) => {
                     <Link href="/cart">
                         <button className="cta-btn rounded-md">Voir le détail</button>
                     </Link>
-                    <Link href="">
+                    <Link href="/payment">
                         <button className="cta-btn rounded-md">Payer</button>
                     </Link>
                 </div>
@@ -86,8 +88,3 @@ const CartModal:React.FC<Props> = ({cartModalOpen, handleCartModal}) => {
 }
 
 export default CartModal;
-
-// Buttons to add for interactivity next :
-/*<button onClick={decrementQuantity}> - </button>
-<button onClick={incrementQuantity}> + </button>
-*/

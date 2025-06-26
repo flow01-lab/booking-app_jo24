@@ -6,6 +6,9 @@ import UserBanner from "@/app/ui/components/user-banner";
 import NavTop from "@/app/ui/components/nav-top";
 import Footer from "@/app/ui/components/footer";
 import { CartProvider } from "@/app/lib/context/cartContext";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { Bounce } from "react-toastify";
 
 
 const geistSans = Geist({
@@ -32,6 +35,19 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${OlympicSansReg.className} antialiased`}>
         <CartProvider>
+          <ToastContainer 
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+            transition={Bounce}
+          />
           <UserBanner />
           <NavTop />
           {children}
