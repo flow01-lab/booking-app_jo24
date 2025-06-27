@@ -1,5 +1,5 @@
 import React from 'react'
-import { UserButton } from './user-button'
+import { UserButton } from '../../app/ui/components/user-button'
 
 describe('<UserButton />', () => {
   it('renders', () => {

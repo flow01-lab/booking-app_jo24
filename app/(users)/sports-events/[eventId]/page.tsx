@@ -2,8 +2,10 @@ import { EventsData } from "@/app/lib/api/events-data";
 import { supabase } from '@/app/lib/db-supabase';
 import Image from "next/image";
 import { OlympicHeadlineCsd, OlympicHeadlineReg } from "@/app/ui/fonts";
-import ButtonGetTickets from "../components/btn-getmyticket";
+//import ButtonGetTickets from "../components/btn-getmyticket";
 import PreviewPage from "@/app/ui/components/btn-preview";
+//import ListOffers from "@/app/ui/components/list-offers";
+//import { useState } from "react";
 
 export async function generateStaticParams(){
     const eventsPosts = await EventsData();
@@ -64,7 +66,6 @@ export default async function SampleEventPage({
                     </div>
                     <h3 className="font-bold">Description</h3>
                     <p className="text-center p-3">{infos.description}</p>
-                    <ButtonGetTickets />
                 </div>
             ) : (
                 <p>Aucune donnée trouvée pour cet événement.</p>
