@@ -1,6 +1,6 @@
 import { defineConfig } from "cypress";
 import codeCoverageTask from '@cypress/code-coverage/task';
-import useBabelrc from '@cypress/code-coverage/use-babelrc';
+//import useBabelrc from '@cypress/code-coverage/use-babelrc';
 
 
 export default defineConfig({
@@ -24,7 +24,7 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
       codeCoverageTask(on, config);
-      on('file:preprocessor', useBabelrc)
+      //on('file:preprocessor', useBabelrc) // Bug : Don't find 'use-babelrc' file in the repository
       return config
     },
     specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
